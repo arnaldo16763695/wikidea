@@ -17,7 +17,7 @@ const root = () => {
 
       <div className="buttons">
       
-        <Link to={'add-theme'} className="button">Inicio</Link>
+        <Link to={'/'} className="button">Inicio</Link>
         <Link to={'add-theme'} className="button">Agregar</Link>
         
       </div>
