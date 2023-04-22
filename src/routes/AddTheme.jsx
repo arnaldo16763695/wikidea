@@ -8,6 +8,7 @@ const modules = {
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
     [{ font: [] }],
     [{ size: [] }],
+    [{ 'color': [] }, { 'background': [] }], 
     ["bold", "italic", "underline", "strike", "blokquote"],
     [
       { list: "ordered" },
@@ -21,19 +22,31 @@ const modules = {
 
 const AddTheme = () => {
   const [value, setValue] = useState("");
+  const [editorVisible, setEditorVisible] = useState(false);
   return (
     <div className="container">
+    {editorVisible ? <button onClick={()=>setEditorVisible(false)}>Guardar</button>
+    :<button onClick={()=>setEditorVisible(true)}>Editar</button>
+    }
       <div className="row">
-        <div className="editor">
-          <ReactQuill
-            theme="snow"
-            value={value}
-            onChange={setValue}
-            className="editor-input"
-            modules={modules}
+        {editorVisible ? (
+          <div className="editor">
+            <ReactQuill
+              theme="snow"
+              value={value}
+              onChange={setValue}
+              className="editor-input"
+              modules={modules}
+            />
+          </div>
+        ) : (
+          <div
+            className="preview ql-editor"
+            dangerouslySetInnerHTML={{ __html: value }}
           />
-        </div>
-        <div className="preview" dangerouslySetInnerHTML={{ __html: value }} />
+        )}
+
+        {/* <div className="preview">{value}</div> */}
       </div>
     </div>
   );
