@@ -1,7 +1,7 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
-import "./AddTheme.css";
+import "./AddArticle.css";
 
 const modules = {
   toolbar: [
@@ -20,7 +20,7 @@ const modules = {
   ],
 };
 
-const AddTheme = () => {
+const AddArticle = () => {
   const [value, setValue] = useState("");
   const [editorVisible, setEditorVisible] = useState(false);
   return (
@@ -41,7 +41,7 @@ const AddTheme = () => {
           </div>
         ) : (
           <div
-            className="preview ql-editor"
+            className="ql-editor display-theme"
             dangerouslySetInnerHTML={{ __html: value }}
           />
         )}
@@ -52,4 +52,4 @@ const AddTheme = () => {
   );
 };
 
-export default AddTheme;
+export default AddArticle;
