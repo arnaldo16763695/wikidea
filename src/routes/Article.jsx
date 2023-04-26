@@ -1,8 +1,8 @@
+import { Link, Form } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "./article.css";
 import { useState } from "react";
-import "./AddArticle.css";
-import { Link } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
 
 const modules = {
@@ -22,36 +22,39 @@ const modules = {
   ],
 };
 
-const AddArticle = () => {
+export default function Article() {
   const [value, setValue] = useState("");
   const [titleValue, setTitleValue] = useState("");
+  const [category, setCategory] = useState("");
+
   return (
-    <>
-      <div className="inputs-add-article">
+    <div className="container-article">
+      <div className="inputs">
         <input
           type="text"
+          placeholder="Título del Artículo"
+          className="input-title-article"
           onChange={(e) => {
             setTitleValue(e.target.value);
           }}
-          value={titleValue}
-          placeholder="Título del Artículo"
-          className="input-title-article"
         />
         <SelectCategories
           url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
           handleChange={(e) => {
-            setCategory(e.taget.value);
+            setCategory(e.target.value);
           }}
         />
       </div>
-      <div className="links-add-article">
+
+      <Form className="links">
         <a href="#" className="link-save">
           Guardar
         </a>
         <Link to={"/"} className="link-cancel">
           Cancelar
         </Link>
-      </div>
+      </Form>
+
       <div className="container-quill">
         <ReactQuill
           theme="snow"
@@ -61,8 +64,6 @@ const AddArticle = () => {
           modules={modules}
         />
       </div>
-    </>
+    </div>
   );
-};
-
-export default AddArticle;
+}

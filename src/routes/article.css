@@ -1,0 +1,116 @@
+.link-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  background-color: var(--second-color);
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  height: 2rem;
+  width: 100px;
+  margin: 10px;
+}
+
+.link-cancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  background-color: var(--first-color);
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  height: 2rem;
+  width: 100px;
+  margin: 10px;
+}
+
+/* .editor-input {
+  width: 95%;
+  border: thin solid yellow;
+  height: 50px;
+  overflow: visible;
+} */
+
+.container-quill {
+  display: flex;
+  justify-content: center;
+  /* border: 10px solid green; */
+}
+
+.links {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    /* border: thin solid rebeccapurple; */
+    margin: 0 auto auto auto;
+  }
+
+  .inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border: thin solid sandybrown; */
+  }
+
+  .container-article{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: 15px solid orange; */
+    width: 100%;
+  }
+
+
+
+@media screen and (min-width: 768px) {      
+  .inputs-add-article {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px auto auto auto;
+    width: 80%;
+  }
+
+  .input-title-article,
+  .input-category-article {
+    margin-top: 2rem;
+    width: 40%;
+  }
+
+  .links {
+    display: flex;
+    
+    width: 70%;
+   
+    margin: 0 auto auto auto;
+    justify-content: flex-end;
+    /* border: thin solid red; */
+  }
+
+  .editor-input {
+    width: 70%;
+    height: 35vh;
+  }
+
+  .container-quill {
+    flex-grow: 1;
+  }
+  .container-article{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: 15px solid orange; */
+    width: 100%;
+  }
+
+  .inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import AddArticle from "./routes/AddArticle";
 import Search from "./components/Search";
+import Article from "./routes/Article";
+import ListCategories, {loader as listcatLoader} from "./routes/ListCategories";
 
 const router = createBrowserRouter([
   {
@@ -13,10 +15,19 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Search/> },
+      { index: true, element: <Search /> },
       {
         path: "add-article",
         element: <AddArticle />,
+      },
+      {
+        path: "article/:articleId",
+        element: <Article />,
+      },
+      {
+        path: "list-categories",
+        element: <ListCategories />,
+        loader: listcatLoader,
       },
     ],
   },

@@ -11,15 +11,22 @@ const root = () => {
         </div>
         <nav className="menu">
           <ul>
-            <li><Link to="/add-article">Nuevo artículo</Link> </li>
-            <li><Link to="/"> Categorías</Link></li>
+            <li>
+              <Link to="/add-article">Nuevo artículo</Link>{" "}
+            </li>
+            <li>
+              <Link to="/list-categories"> Categorías</Link>
+            </li>
           </ul>
         </nav>
       </header>
       <main id="main">
         <Outlet />
       </main>
-      <footer className="footer">Este es el footer</footer>
+      <footer className="footer">
+        {" "}
+        Copyright © 2022 WikiDea Todos los derechos reservados 2022 - 2023
+      </footer>
     </div>
   );
 };
