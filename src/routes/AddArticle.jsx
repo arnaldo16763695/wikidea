@@ -25,6 +25,7 @@ const modules = {
 const AddArticle = () => {
   const [value, setValue] = useState("");
   const [titleValue, setTitleValue] = useState("");
+
   return (
     <>
       <div className="inputs-add-article">

@@ -1,9 +1,8 @@
-import { Link, Form } from "react-router-dom";
-import ReactQuill from "react-quill";
+import { Link, Form, useParams } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import "./article.css";
-import { useState } from "react";
-import { SelectCategories } from "../components/SelectCategories";
+import { useState, useEffect } from "react";
+import { helpHttp } from "../helpers/helpHttp";
 
 const modules = {
   toolbar: [
@@ -23,32 +22,44 @@ const modules = {
 };
 
 export default function Article() {
-  const [value, setValue] = useState("");
-  const [titleValue, setTitleValue] = useState("");
-  const [category, setCategory] = useState("");
+ 
+  const [article, setArticle] = useState("");
+  
+  const {articleId} = useParams();
+
+  let url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`;
+  let urlCategories =
+    "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
+
+  useEffect(() => {
+    console.log(url)
+    const getAticle = async (url) => {
+      let res = await fetch(url),
+      json = await res.json();
+      console.log(json);
+      setArticle(json);
+    };
+    
+    getAticle(url);
+  }, []);
+
+
 
   return (
     <div className="container-article">
       <div className="inputs">
-        <input
-          type="text"
-          placeholder="Título del Artículo"
-          className="input-title-article"
-          onChange={(e) => {
-            setTitleValue(e.target.value);
-          }}
-        />
-        <SelectCategories
-          url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-          handleChange={(e) => {
-            setCategory(e.target.value);
-          }}
-        />
+        <div>
+          <h2>{article.title}</h2>
+        </div>
+
+        <div>
+          <h2>category:{`pendiente`}</h2>
+        </div>
       </div>
 
       <Form className="links">
         <a href="#" className="link-save">
-          Guardar
+          Editar
         </a>
         <Link to={"/"} className="link-cancel">
           Cancelar
@@ -56,12 +67,9 @@ export default function Article() {
       </Form>
 
       <div className="container-quill">
-        <ReactQuill
-          theme="snow"
-          value={value}
-          onChange={setValue}
-          className="editor-input"
-          modules={modules}
+        <div
+          className="preview"
+          dangerouslySetInnerHTML={{ __html: article.content }}
         />
       </div>
     </div>

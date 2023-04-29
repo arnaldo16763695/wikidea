@@ -113,4 +113,10 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
+  .preview{
+    border: thick solid red;
+    width: 80%;
+    height: 100%;
+  }
 }

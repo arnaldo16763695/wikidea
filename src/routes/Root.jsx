@@ -12,10 +12,13 @@ const root = () => {
         <nav className="menu">
           <ul>
             <li>
-              <Link to="/add-article">Nuevo artículo</Link>{" "}
+              <Link to="/add-article">Crear artículo</Link>{" "}
             </li>
             <li>
               <Link to="/list-categories"> Categorías</Link>
+            </li>
+            <li>
+              <Link to="/list-articles"> Articulos</Link>
             </li>
           </ul>
         </nav>

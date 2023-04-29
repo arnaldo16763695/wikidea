@@ -7,7 +7,8 @@ import ErrorPage from "./error-page";
 import AddArticle from "./routes/AddArticle";
 import Search from "./components/Search";
 import Article from "./routes/Article";
-import ListCategories, {loader as listcatLoader} from "./routes/ListCategories";
+import ListCategories from "./routes/ListCategories";
+import Articles from "./routes/Articles";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
       {
         path: "list-categories",
         element: <ListCategories />,
-        loader: listcatLoader,
+        
+      },
+      {
+        path: "list-articles",
+        element: <Articles/>,
+        
       },
     ],
   },
