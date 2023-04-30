@@ -27,7 +27,7 @@ const AddArticle = () => {
   const [titleValue, setTitleValue] = useState("");
 
   return (
-    <>
+    <form className="form-add-article">
       <div className="inputs-add-article">
         <input
           type="text"
@@ -46,9 +46,9 @@ const AddArticle = () => {
         />
       </div>
       <div className="links-add-article">
-        <a href="#" className="link-save">
+        <button type="submit" className="link-save">
           Guardar
-        </a>
+        </button>
         <Link to={"/"} className="link-cancel">
           Cancelar
         </Link>
@@ -62,7 +62,7 @@ const AddArticle = () => {
           modules={modules}
         />
       </div>
-    </>
+    </form>
   );
 };
 

@@ -29,7 +29,7 @@
 
 .editor-input{
     width: 95%;
-    height: 35vh;   
+    height: 30vh;   
 }
 
 .container-quill{
@@ -67,6 +67,13 @@
     width: 80%;
     justify-content: space-between;
    
+}
+
+.form-add-article{
+    display: flex;
+    flex-wrap: wrap;
+    border: thick solid green;
+    height: 80vh;
 }
 
 @media screen and (min-width: 768px) {
