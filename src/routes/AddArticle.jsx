@@ -27,42 +27,45 @@ const AddArticle = () => {
   const [titleValue, setTitleValue] = useState("");
 
   return (
-    <form className="form-add-article">
-      <div className="inputs-add-article">
-        <input
-          type="text"
-          onChange={(e) => {
-            setTitleValue(e.target.value);
-          }}
-          value={titleValue}
-          placeholder="Título del Artículo"
-          className="input-title-article"
-        />
-        <SelectCategories
-          url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-          handleChange={(e) => {
-            setCategory(e.taget.value);
-          }}
-        />
-      </div>
-      <div className="links-add-article">
-        <button type="submit" className="link-save">
-          Guardar
-        </button>
-        <Link to={"/"} className="link-cancel">
-          Cancelar
-        </Link>
-      </div>
-      <div className="container-quill">
-        <ReactQuill
-          theme="snow"
-          value={value}
-          onChange={setValue}
-          className="editor-input"
-          modules={modules}
-        />
-      </div>
-    </form>
+<>
+      <form className="form-add-article">
+        <div className="inputs-add-article">
+          <input
+            type="text"
+            onChange={(e) => {
+              setTitleValue(e.target.value);
+            }}
+            value={titleValue}
+            placeholder="Título del Artículo"
+            className="input-title-article"
+          />
+          <SelectCategories
+            url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
+            handleChange={(e) => {
+              setCategory(e.taget.value);
+            }}
+          />
+        </div>
+        <div className="links-add-article">
+          <button type="submit" className="link-save">
+            Guardar
+          </button>
+          <Link to={"/"} className="link-cancel">
+            Cancelar
+          </Link>
+        </div>
+        <div className="container-quill">
+          <ReactQuill
+            theme="snow"
+            value={value}
+            onChange={setValue}
+            className="editor-input"
+            modules={modules}
+          />
+        </div>
+      </form>
+     
+</>
   );
 };
 

@@ -1,30 +1,17 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./root.css";
+import NavBar from "../components/NavBar";
 
 const root = () => {
   return (
     <div className="home-container">
       <header className="header Headlines">
-        <div className="logo">
-          <Link to="/">Colabry</Link>
-        </div>
-        <nav className="menu">
-          <ul>
-            <li>
-              <Link to="/add-article">Crear artículo</Link>{" "}
-            </li>
-            <li>
-              <Link to="/list-categories"> Categorías</Link>
-            </li>
-            <li>
-              <Link to="/list-articles"> Articulos</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavBar />
       </header>
       <main id="main">
         <Outlet />
+        
       </main>
       <footer className="footer">
         {" "}
