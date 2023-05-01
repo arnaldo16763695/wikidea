@@ -4,9 +4,11 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    
   }
   .nav_items {
     position: absolute;
+    z-index: 1;
     top: 3rem;
     left: 0;
     background-color: #222;
