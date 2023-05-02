@@ -30,7 +30,7 @@ export const SelectCategories = ({ handleChange }) => {
       </option>
       {categories &&
         categories.map((el) => (
-          <option key={el.id} value={el.nameCategory}>
+          <option key={el.id} value={el.id}>
             {el.nameCategory}
           </option>
         ))}

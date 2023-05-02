@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./AddArticle.css";
 import { Link } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
+import { helpHttp } from "../helpers/helpHttp";
 
 const modules = {
   toolbar: [
@@ -21,29 +22,81 @@ const modules = {
     ["link", "image", "video"],
   ],
 };
-
+const initialForm = {
+  title: "",
+  category: "",
+  content: "",
+};
 const AddArticle = () => {
-  const [value, setValue] = useState("");
-  const [titleValue, setTitleValue] = useState("");
+  const api = helpHttp();
+  const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
 
+  const createArticle = async (data) => {
+    // api
+    try {
+      const res = await fetch(
+        `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json; charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+    //   .post(
+    //     `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`,
+    //     { body: data }
+    //   )
+    //   .then((res) => {
+    //     if (!res.err) {
+    //       console.log("todo OK");
+    //     } else {
+    //       console.log(res);
+    //     }
+    //   });
+  };
+  const handleChange = (e) => {
+    setCategory(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      title,
+      content,
+    };
+
+    if (!data.title) {
+      alert("Datos Incompletos");
+      return;
+    }
+    console.log(
+      `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`
+    );
+    console.log(JSON.stringify(data));
+    createArticle(data);
+  };
+  const handleReset = (e) => {};
   return (
-<>
-      <form className="form-add-article">
+    <>
+      <form className="form-add-article" onSubmit={handleSubmit}>
         <div className="inputs-add-article">
           <input
             type="text"
-            onChange={(e) => {
-              setTitleValue(e.target.value);
-            }}
-            value={titleValue}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             placeholder="Título del Artículo"
             className="input-title-article"
           />
           <SelectCategories
             url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-            handleChange={(e) => {
-              setCategory(e.taget.value);
-            }}
+            handleChange={handleChange}
           />
         </div>
         <div className="links-add-article">
@@ -57,15 +110,14 @@ const AddArticle = () => {
         <div className="container-quill">
           <ReactQuill
             theme="snow"
-            value={value}
-            onChange={setValue}
+            value={content}
+            onChange={setContent}
             className="editor-input"
             modules={modules}
           />
         </div>
       </form>
-     
-</>
+    </>
   );
 };
 

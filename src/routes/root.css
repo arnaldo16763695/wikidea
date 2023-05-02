@@ -36,8 +36,8 @@ main {
   .home-container {
     display: flex;
     flex-direction: column;
-   
-    border: thick solid rebeccapurple;
+
+    /* border: thick solid rebeccapurple; */
   }
   .header {
     width: 100%;

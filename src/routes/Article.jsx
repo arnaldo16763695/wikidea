@@ -2,7 +2,7 @@ import { Link, Form, useParams } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import "./article.css";
 import { useState, useEffect } from "react";
-import { helpHttp } from "../helpers/helpHttp";
+import "react-quill/dist/quill.snow.css";
 
 const modules = {
   toolbar: [
@@ -68,7 +68,7 @@ export default function Article() {
 
       <div className="container-quill">
         <div
-          className="preview"
+          className="preview editor"
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
       </div>

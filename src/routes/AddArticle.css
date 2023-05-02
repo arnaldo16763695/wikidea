@@ -70,18 +70,15 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  border: thick solid green;
+  /* border: thick solid green; */
 }
 
 @media screen and (min-width: 768px) {
-  
-    .editor-input {
-       
-  width: 95%;
-  min-height: 30vh;
-}
+  .editor-input {
+    width: 95%;
+    min-height: 30vh;
+  }
 
-    
   .inputs-add-article {
     flex-direction: row;
     flex-wrap: wrap;
@@ -102,15 +99,10 @@
     justify-content: flex-end;
   }
 
-
-
-
   .form-add-article {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    border: thick solid green;
+    /* border: thick solid green; */
   }
-
-
 }

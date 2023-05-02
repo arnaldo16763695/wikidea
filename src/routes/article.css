@@ -26,12 +26,13 @@
   margin: 10px;
 }
 
-/* .editor-input {
-  width: 95%;
-  border: thin solid yellow;
-  height: 50px;
-  overflow: visible;
-} */
+.preview{
+  border: 1px solid rgba(2, 2, 2, 0.2);
+  min-height: 100%;
+  width: 90%;
+  padding: 1rem;
+  
+}
 
 .container-quill {
   display: flex;
@@ -115,8 +116,10 @@
   }
 
   .preview{
-    border: thick solid red;
-    width: 80%;
-    height: 100%;
+    border: 1px solid rgba(2, 2, 2, 0.2);
+    min-height: 100%;
+    width: 65%;
+    padding: 1rem;
+    
   }
 }
