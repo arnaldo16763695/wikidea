@@ -11,10 +11,8 @@ const root = () => {
       </header>
       <main id="main">
         <Outlet />
-        
       </main>
       <footer className="footer">
-        {" "}
         Copyright © 2022 WikiDea Todos los derechos reservados 2022 - 2023
       </footer>
     </div>

@@ -13,7 +13,7 @@ export default function ListCategories() {
   useEffect(() => {
     setLoading(true);
     api.get(url).then((res) => {
-      console.log(res);
+      // console.log(res);
       if (!res.err) {
         setCategories(res);
         setError(null);

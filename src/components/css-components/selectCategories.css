@@ -1,0 +1,14 @@
+.select_categories{
+margin: 0 0rem 1rem 0;
+height: 2rem;
+width: 80%;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .select_categories{
+        width: 30%;
+        margin: 1rem 0rem 1rem 0;
+        }
+
+}

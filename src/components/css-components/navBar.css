@@ -23,6 +23,8 @@
   .nav_items > a {
     padding: 1rem;
     font-size: 20px;
+    color: white;
+    text-decoration: none;
   }
   .nav_items.open {
     transform: translateX(0) !important;
@@ -76,6 +78,8 @@
     text-decoration: none;
   }
   .nav_items > a {
+    color: white;
+    text-decoration: none;
     padding: 1rem;
   }
 

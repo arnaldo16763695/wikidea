@@ -21,15 +21,10 @@
   width: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: #eee;
-}
-
 main {
+  position: relative;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  
 }
 
 @media screen and (min-width: 1024px) {
@@ -43,10 +38,5 @@ main {
     width: 100%;
   }
 
-  main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+
 }

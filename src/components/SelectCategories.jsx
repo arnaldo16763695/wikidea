@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { helpHttp } from "../helpers/helpHttp";
-
+import "./css-components/selectCategories.css";
 export const SelectCategories = ({ handleChange }) => {
   const url = "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
 
@@ -8,7 +8,7 @@ export const SelectCategories = ({ handleChange }) => {
   let api = helpHttp();
   useEffect(() => {
     api.get(url).then((res) => {
-      console.log(res);
+      // console.log(res);
       if (!res.err) {
         setCategories(res);
       } else {
@@ -22,7 +22,7 @@ export const SelectCategories = ({ handleChange }) => {
     <select
       name="category"
       id="select"
-      className="input-category-article"
+      className="select_categories"
       onChange={handleChange}
     >
       <option value="" defaultValue={""}>

@@ -1,77 +1,62 @@
-import { Link, Form, useParams } from "react-router-dom";
-import "react-quill/dist/quill.snow.css";
-import "./article.css";
+import "quill/dist/quill.snow.css";
+import { useQuill } from "react-quilljs";
 import { useState, useEffect } from "react";
-import "react-quill/dist/quill.snow.css";
-
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{ font: [] }],
-    [{ size: [] }],
-    [{ color: [] }, { background: [] }],
-    ["bold", "italic", "underline", "strike"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-  ],
-};
+import { Link, useParams } from "react-router-dom";
+import "./article.css";
+import toolbar from "../toolbar";
 
 export default function Article() {
- 
-  const [article, setArticle] = useState("");
-  
-  const {articleId} = useParams();
+  const { articleId } = useParams();
+  const url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`;
+  const [article, setArticle] = useState({});
 
-  let url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`;
-  let urlCategories =
-    "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
+  const { quill, quillRef } = useQuill({
+    readOnly: true,
+    modules: {
+      toolbar: false,
+    },
+  });
 
   useEffect(() => {
-    console.log(url)
-    const getAticle = async (url) => {
-      let res = await fetch(url),
-      json = await res.json();
-      console.log(json);
-      setArticle(json);
+    const getAticle = async () => {
+      try {
+        const res = await fetch(
+            `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`
+          ),
+          data = await res.json();
+        setArticle(data);
+        quill.setContents(JSON.parse(data.content));
+      } catch (error) {
+        console.log(error);
+      }
     };
+    getAticle();
     
-    getAticle(url);
-  }, []);
 
+    // console.log(JSON.stringify(article));
+  }, [quill, articleId]);
 
+ 
+
+  const handleSubmit = () => {};
 
   return (
-    <div className="container-article">
-      <div className="inputs">
-        <div>
-          <h2>{article.title}</h2>
-        </div>
-
-        <div>
-          <h2>category:{`pendiente`}</h2>
-        </div>
+    <form className="form-add-article" onSubmit={handleSubmit}>
+      <div className="container-inputs-add-article">
+        <h3>{article.title}</h3>
+        <div>Categoria : {article.category?.nameCategory}</div>
       </div>
-
-      <Form className="links">
-        <a href="#" className="link-save">
+      <div className="container-buttons-add-article">
+        <button type="submit" className="btn-button">
           Editar
-        </a>
-        <Link to={"/"} className="link-cancel">
+        </button>
+        <Link to={"/"} className="btn-link">
           Cancelar
         </Link>
-      </Form>
-
-      <div className="container-quill">
-        <div
-          className="preview editor"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-        />
       </div>
-    </div>
+      <div className="editor">
+        <div ref={quillRef}></div>
+      </div>
+    </form>
   );
 }

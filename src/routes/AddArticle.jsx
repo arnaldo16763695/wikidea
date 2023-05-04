@@ -1,40 +1,27 @@
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+import "quill/dist/quill.snow.css";
+import { useQuill } from "react-quilljs";
 import { useState } from "react";
 import "./AddArticle.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
-import { helpHttp } from "../helpers/helpHttp";
+import toolbar from "../toolbar";
 
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    [{ font: [] }],
-    [{ size: [] }],
-    [{ color: [] }, { background: [] }],
-    ["bold", "italic", "underline", "strike"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image", "video"],
-  ],
-};
-const initialForm = {
-  title: "",
-  category: "",
-  content: "",
-};
 const AddArticle = () => {
-  const api = helpHttp();
-  const [content, setContent] = useState("");
-  const [title, setTitle] = useState("");
+  const navigate = useNavigate();
+  const [articleTitle, setArticleTitle] = useState("");
   const [category, setCategory] = useState("");
+  const { quill, quillRef } = useQuill({
+    modules: {
+      toolbar,
+    },
+  });
+  const handleChange = (e) => {
+    setCategory(e.target.value);
+  };
 
-  const createArticle = async (data) => {
-    // api
+  const saveArticle = async (data) => {
     try {
       const res = await fetch(
         `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`,
@@ -46,75 +33,70 @@ const AddArticle = () => {
           body: JSON.stringify(data),
         }
       );
-      console.log(res);
+      // console.log(res);
+      setArticleTitle("");
+      setCategory("");
+      navigate("/list-articles");
     } catch (error) {
       console.log(error);
     }
-    //   .post(
-    //     `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`,
-    //     { body: data }
-    //   )
-    //   .then((res) => {
-    //     if (!res.err) {
-    //       console.log("todo OK");
-    //     } else {
-    //       console.log(res);
-    //     }
-    //   });
   };
-  const handleChange = (e) => {
-    setCategory(e.target.value);
-  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log(category)
     const data = {
-      title,
-      content,
+      title: articleTitle,
+      content: JSON.stringify(quill.getContents()),
     };
 
-    if (!data.title) {
-      alert("Datos Incompletos");
+    //get text of edito to validate form
+  const textEditor = quill.getLength();
+    
+    if (!data.title || !category || textEditor==1 ) {
+      alert("datos incompletos");
       return;
     }
-    console.log(
-      `https://wikideas.up.railway.app/api/v1/wikideas/categories/${category}/articles`
-    );
-    console.log(JSON.stringify(data));
-    createArticle(data);
+    
+    saveArticle(data);
   };
-  const handleReset = (e) => {};
+
+  const addContent = (value) => {
+    setArticleContent(value);
+  };
+
   return (
     <>
       <form className="form-add-article" onSubmit={handleSubmit}>
-        <div className="inputs-add-article">
+        <div className="container-inputs-add-article">
           <input
             type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
             placeholder="Título del Artículo"
-            className="input-title-article"
+            className="input"
+            onChange={(e) => setArticleTitle(e.target.value)}
+            value={articleTitle}
           />
           <SelectCategories
-            url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
             handleChange={handleChange}
+            url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
           />
         </div>
-        <div className="links-add-article">
-          <button type="submit" className="link-save">
+        <div className="container-buttons-add-article">
+          <button type="submit" className="btn-button">
             Guardar
           </button>
-          <Link to={"/"} className="link-cancel">
+          <Link to={"/"} className="btn-link">
             Cancelar
           </Link>
         </div>
-        <div className="container-quill">
-          <ReactQuill
-            theme="snow"
-            value={content}
-            onChange={setContent}
-            className="editor-input"
-            modules={modules}
-          />
+        {/* <ReactQuill
+          modules={modules}
+          theme="snow"
+          value={articleContent}
+          onChange={addContent}
+        /> */}
+        <div className="editor">
+          <div ref={quillRef}></div>
         </div>
       </form>
     </>
