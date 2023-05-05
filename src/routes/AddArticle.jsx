@@ -71,7 +71,7 @@ const AddArticle = () => {
         <div className="container-inputs-add-article">
           <input
             type="text"
-            placeholder="Título del Artículo"
+            placeholder="Título de tu Artículo"
             className="input"
             onChange={(e) => setArticleTitle(e.target.value)}
             value={articleTitle}
@@ -79,6 +79,7 @@ const AddArticle = () => {
           <SelectCategories
             handleChange={handleChange}
             url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
+            
           />
         </div>
         <div className="container-buttons-add-article">

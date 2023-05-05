@@ -9,6 +9,8 @@ import Search from "./components/Search";
 import Article from "./routes/Article";
 import ListCategories from "./routes/ListCategories";
 import Articles from "./routes/Articles";
+import ArticleEdit from "./routes/ArticleEdit";
+
 
 const router = createBrowserRouter([
   {
@@ -26,14 +28,16 @@ const router = createBrowserRouter([
         element: <Article />,
       },
       {
+        path: "edit-article/:articleId",
+        element: <ArticleEdit/>,
+      },
+      {
         path: "list-categories",
         element: <ListCategories />,
-        
       },
       {
         path: "list-articles",
-        element: <Articles/>,
-        
+        element: <Articles />,
       },
     ],
   },

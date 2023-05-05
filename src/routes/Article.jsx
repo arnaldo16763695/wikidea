@@ -38,21 +38,21 @@ export default function Article() {
 
  
 
-  const handleSubmit = () => {};
+  
 
   return (
-    <form className="form-add-article" onSubmit={handleSubmit}>
+    <form className="form-add-article" >
       <div className="container-inputs-add-article">
         <h3>{article.title}</h3>
         <div>Categoria : {article.category?.nameCategory}</div>
       </div>
       <div className="container-buttons-add-article">
-        <button type="submit" className="btn-button">
+        <Link to={`/edit-article/${article.id}`} className="btn-link">
           Editar
-        </button>
-        <Link to={"/"} className="btn-link">
-          Cancelar
         </Link>
+        {/* <Link to={"/"} className="btn-link">
+          Cancelar
+        </Link> */}
       </div>
       <div className="editor">
         <div ref={quillRef}></div>

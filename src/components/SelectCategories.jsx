@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import "./css-components/selectCategories.css";
-export const SelectCategories = ({ handleChange }) => {
-  const url = "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
-
+export const SelectCategories = ({ handleChange, url, categoryName }) => {
+  
   const [categories, setCategories] = useState([]);
   let api = helpHttp();
   useEffect(() => {
@@ -24,9 +23,10 @@ export const SelectCategories = ({ handleChange }) => {
       id="select"
       className="select_categories"
       onChange={handleChange}
+      value={categoryName || ''}
     >
-      <option value="" defaultValue={""}>
-        Elija un Categoría
+      <option value="" >
+         Elija una Categoría
       </option>
       {categories &&
         categories.map((el) => (
