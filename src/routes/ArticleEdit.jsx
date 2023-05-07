@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "quill/dist/quill.snow.css";
-import { useQuill } from "react-quilljs";
+import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
 // import { SelectCategories } from "../components/SelectCategories";
-import toolbar from "../toolbar";
+import {toolbar} from '../toolbar'
 
 function ArticleEdit() {
     const navigate = useNavigate();
@@ -11,12 +11,8 @@ function ArticleEdit() {
   const { articleId } = useParams();
   const [articleTitle, setArticleTitle] = useState("");
   const [article, setArticle] = useState("");
-  const { quill, quillRef } = useQuill({
-    modules: {
-      toolbar,
-    },
-  });
-
+  const [articleContent, setArticleContent] = useState("")
+  
 //   const handleChange = (e) => {
 //     setCategory(e.target.value);
 //   };
@@ -45,20 +41,24 @@ function ArticleEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(category)
+   
     const data = {
       title: articleTitle,
-      content: JSON.stringify(quill.getContents()),
+      content: articleContent,
     };
 
-    //get text of edito to validate form
-  const textEditor = quill.getLength();
+   
     
-    if (!data.title || textEditor==1 ) {
+    if (!data.title ) {
       alert("datos incompletos");
       return;
     }
     
     UpdateArticle(data);
+  };
+
+  const addContent = (value) => {
+    setArticleContent(value);
   };
 
   useEffect(() => {
@@ -70,7 +70,8 @@ function ArticleEdit() {
           data = await res.json();
         setArticle(data);
         setArticleTitle(data.title);
-        quill.setContents(JSON.parse(data.content));
+        setArticleContent(data.content);
+        
       } catch (error) {
         console.log(error);
       }
@@ -78,7 +79,7 @@ function ArticleEdit() {
     getAticle();
 
     // console.log(JSON.stringify(article));
-  }, [quill, articleId]);
+  }, []);
   return (
     <form className="form-add-article" onSubmit={handleSubmit}>
       <div className="container-inputs-add-article">
@@ -105,9 +106,12 @@ function ArticleEdit() {
         </Link> */}
       </div>
 
-      <div className="editor">
-        <div ref={quillRef}></div>
-      </div>
+      <ReactQuill
+          theme="snow"
+          value={articleContent}
+          onChange={addContent}
+          modules={toolbar}
+        />
     </form>
   );
 }

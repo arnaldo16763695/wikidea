@@ -1,21 +1,14 @@
-import "quill/dist/quill.snow.css";
-import { useQuill } from "react-quilljs";
+import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./article.css";
-import toolbar from "../toolbar";
 
 export default function Article() {
   const { articleId } = useParams();
-  const url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`;
+  // const url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`;
   const [article, setArticle] = useState({});
-
-  const { quill, quillRef } = useQuill({
-    readOnly: true,
-    modules: {
-      toolbar: false,
-    },
-  });
+  const [articleContent, setArticleContent] = useState("");
 
   useEffect(() => {
     const getAticle = async () => {
@@ -25,23 +18,20 @@ export default function Article() {
           ),
           data = await res.json();
         setArticle(data);
-        quill.setContents(JSON.parse(data.content));
+        setArticleContent(data.content);
+        
+        // console.log(data)
       } catch (error) {
         console.log(error);
       }
     };
     getAticle();
+
     
-
-    // console.log(JSON.stringify(article));
-  }, [quill, articleId]);
-
- 
-
-  
+  }, []);
 
   return (
-    <form className="form-add-article" >
+    <form className="form-add-article">
       <div className="container-inputs-add-article">
         <h3>{article.title}</h3>
         <div>Categoria : {article.category?.nameCategory}</div>
@@ -54,9 +44,7 @@ export default function Article() {
           Cancelar
         </Link> */}
       </div>
-      <div className="editor">
-        <div ref={quillRef}></div>
-      </div>
+      <ReactQuill style={{border: "1px solid rgba(2,2,2,0.1)"}} theme={false}  value={articleContent} readOnly />
     </form>
   );
 }

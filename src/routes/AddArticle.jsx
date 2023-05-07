@@ -1,22 +1,15 @@
-// import "react-quill/dist/quill.snow.css";
-// import ReactQuill from "react-quill";
-import "quill/dist/quill.snow.css";
-import { useQuill } from "react-quilljs";
+import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
 import { useState } from "react";
 import "./AddArticle.css";
 import { Link, useNavigate } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
-import toolbar from "../toolbar";
-
+import {toolbar} from '../toolbar'
 const AddArticle = () => {
   const navigate = useNavigate();
   const [articleTitle, setArticleTitle] = useState("");
   const [category, setCategory] = useState("");
-  const { quill, quillRef } = useQuill({
-    modules: {
-      toolbar,
-    },
-  });
+  const [articleContent, setArticleContent] = useState("");
   const handleChange = (e) => {
     setCategory(e.target.value);
   };
@@ -47,17 +40,16 @@ const AddArticle = () => {
     // console.log(category)
     const data = {
       title: articleTitle,
-      content: JSON.stringify(quill.getContents()),
+      content: articleContent,
     };
 
     //get text of edito to validate form
-  const textEditor = quill.getLength();
-    
-    if (!data.title || !category || textEditor==1 ) {
+
+    if (!data.title || !category) {
       alert("datos incompletos");
       return;
     }
-    
+
     saveArticle(data);
   };
 
@@ -79,7 +71,6 @@ const AddArticle = () => {
           <SelectCategories
             handleChange={handleChange}
             url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-            
           />
         </div>
         <div className="container-buttons-add-article">
@@ -90,15 +81,14 @@ const AddArticle = () => {
             Cancelar
           </Link>
         </div>
-        {/* <ReactQuill
-          modules={modules}
+        
+        <ReactQuill
           theme="snow"
           value={articleContent}
           onChange={addContent}
-        /> */}
-        <div className="editor">
-          <div ref={quillRef}></div>
-        </div>
+          modules={toolbar}
+          
+        />
       </form>
     </>
   );
