@@ -94,7 +94,7 @@ function ArticleEdit() {
         {/* <SelectCategories
           handleChange={handleChange}
           url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-          categoryName={article.categoryId}
+          
         /> */}
       </div>
       <div className="container-buttons-add-article">

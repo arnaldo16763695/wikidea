@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import "./css-components/selectCategories.css";
-export const SelectCategories = ({ handleChange, url, categoryName }) => {
+export const SelectCategories = ({ handleChange, url }) => {
   
   const [categories, setCategories] = useState([]);
   let api = helpHttp();
@@ -23,7 +23,7 @@ export const SelectCategories = ({ handleChange, url, categoryName }) => {
       id="select"
       className="select_categories"
       onChange={handleChange}
-      value={categoryName || ''}
+     
     >
       <option value="" >
          Elija una Categoría
