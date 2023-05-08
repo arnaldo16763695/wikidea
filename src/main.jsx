@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Root from "./routes/Root";
 import "./main.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import AddArticle from "./routes/AddArticle";
 import Search from "./components/Search";
@@ -11,8 +11,7 @@ import ListCategories from "./routes/ListCategories";
 import Articles from "./routes/Articles";
 import ArticleEdit from "./routes/ArticleEdit";
 
-
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "edit-article/:articleId",
-        element: <ArticleEdit/>,
+        element: <ArticleEdit />,
       },
       {
         path: "list-categories",
