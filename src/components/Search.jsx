@@ -13,13 +13,13 @@ const Search = () => {
       const res = await fetch(url);
       const data = await res.json();
       setArticlesList(data);
-      console.log(toSearch);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getArticles(url);
+    console.log(Object.keys(toSearch));
   }, []);
   const handleChange = (e) => {
     e.preventDefault();
@@ -36,32 +36,41 @@ const Search = () => {
         return el;
       }
     });
-    
-    
-      setToSearch(result);
-    
+
+    console.log(Object.keys(result).length);
+
+    setToSearch(result.slice(0, 5));
   };
 
   return (
-    <form className="form-search" role="search">
-      <input
-        autoComplete="off"
-        className="input-search"
-        type="text"
-        value={search}
-        onChange={handleChange}
-      />
-      <div className="articles-list">
-        <ul>
-          {toSearch &&
-            toSearch.map((article) => (
-              <li key={article.id}>
-                <Link to={`/article/${article.id}`}>{article.title}</Link>
-              </li>
-            ))}
-        </ul>
+    <div className="containerSerach">
+     
+      <form className="form-search" role="search">
+      <div className="title">
+        <h1>Colabry</h1>
       </div>
-    </form>
+        <input
+          autoComplete="off"
+          className="input-search"
+          type="text"
+          value={search}
+          onChange={handleChange}
+        />
+      
+      </form>
+      {Object.keys(toSearch).length>0 && (
+          <div className="articles-list">
+            <ul>
+              {toSearch &&
+                toSearch.map((article) => (
+                  <li key={article.id}>
+                    <Link to={`/article/${article.id}`}><div >{article.title}</div></Link>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
+    </div>
   );
 };
 

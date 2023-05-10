@@ -2,7 +2,7 @@ export const toolbar = {
   toolbar: [
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
     [{ font: [] }],
-    [{ size: [] }],
+    // [{ size: [] }],
     ["bold", "italic", "underline", "strike", "blockquote"],
     // ["code-block"],
     [{ color: [] }, { background: [] }],
