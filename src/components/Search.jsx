@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./css-components/search.css";
 import { Link } from "react-router-dom";
+import ImagesSlider from "./ImagesSlider";
 
 const Search = () => {
   const [toSearch, setToSearch] = useState([]);
@@ -70,6 +71,7 @@ const Search = () => {
             </ul>
           </div>
         )}
+        <ImagesSlider/>
     </div>
   );
 };
