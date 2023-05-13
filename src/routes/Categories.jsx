@@ -1,13 +1,20 @@
 import { Loader } from "../components/Loader";
 import { Message } from "../components/Message";
 import { helpHttp } from "../helpers/helpHttp";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Pagination from "../components/Pagination";
+import "./categories.css";
 
-export default function ListCategories() {
+export default function Categories() {
   const url = "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [byPage, setByPage] = useState(6);
+  const max = Math.ceil(categories.length / byPage);
+
   let api = helpHttp();
 
   useEffect(() => {
@@ -25,8 +32,10 @@ export default function ListCategories() {
       setLoading(false);
     });
   }, [url]);
+
   return (
-    <>
+    <div className="list-articles">
+      <h1>Todas las Categorías</h1>
       {loading && <Loader />}
       {error && (
         <Message
@@ -34,13 +43,19 @@ export default function ListCategories() {
           bgColor={"#dc3545"}
         />
       )}
-      {categories && (
-        <ul>
-          {categories.map((category) => (
-            <li key={category.id}>{category.nameCategory}</li>
-          ))}
-        </ul>
-      )}
-    </>
+      {categories
+        .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
+        .map((category) => (
+          <Link
+            className="card-article"
+            style={{ color: "#000" }}
+            to={``}
+            key={category.id}
+          >
+            <div>{category.nameCategory}</div>
+          </Link>
+        ))}
+      <Pagination page={page} setPage={setPage} max={max} />
+    </div>
   );
 }

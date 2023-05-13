@@ -7,7 +7,7 @@ import ErrorPage from "./error-page";
 import AddArticle from "./routes/AddArticle";
 import Search from "./components/Search";
 import Article from "./routes/Article";
-import ListCategories from "./routes/ListCategories";
+import Categories from "./routes/Categories";
 import Articles from "./routes/Articles";
 import ArticleEdit from "./routes/ArticleEdit";
 
@@ -32,7 +32,7 @@ const router = createHashRouter([
       },
       {
         path: "list-categories",
-        element: <ListCategories />,
+        element: <Categories />,
       },
       {
         path: "list-articles",
