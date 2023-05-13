@@ -1,6 +1,4 @@
 .list-articles {
-  border: thick solid orange;
-
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10,25 +8,32 @@
   justify-content: space-around;
   /* padding: 2rem; */
 }
-
 .list-articles > h1 {
-    align-self: center;
+  align-self: center;
 }
-
 .card-article {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   font-weight: bold;
-  width: 50%;
+  width: 80%;
   align-self: center;
   text-decoration: none;
   padding: 1rem;
+  background-color: var(--second-color-alpha);
 }
 
 .card-article:hover {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-}
-.card-article:hover div {
-  color: white;
+    background-color: var(--second-color);
+    color: white;
+    transition: all 0.3s ease-in-out;
+  }
+@media screen and (min-width: 768px) {
+  .card-article {
+    width: 50%;
+  }
+
+
+  .card-article:hover div {
+    color: white;
+  }
 }
