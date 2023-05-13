@@ -11,7 +11,7 @@ function NavBar() {
         <span></span>
         <span></span>
       </div>
-      <div className="nav_logo">Colabry</div>
+      <div className="nav_logo"><img src="../../public/images/icon.png" alt="icono colabry" className="icon" /></div>
       <Link className="link-add-content" to="/add-article">Crear Contenido</Link>
       <div className={`nav_items ${isOpen && "open"}`}>
         <Link onClick={() => setIsOpen(!isOpen)} to="/">Inicio</Link>{" "}

@@ -28,7 +28,12 @@ export default function ListCategories() {
   return (
     <>
       {loading && <Loader />}
-      {error && <Message msg={`Error ${error.status}: ${error.statusText}`} bgColor={"#dc3545"} />}
+      {error && (
+        <Message
+          msg={`Error ${error.status}: ${error.statusText}`}
+          bgColor={"#dc3545"}
+        />
+      )}
       {categories && (
         <ul>
           {categories.map((category) => (

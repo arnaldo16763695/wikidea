@@ -57,9 +57,7 @@ const Search = () => {
           value={search}
           onChange={handleChange}
         />
-      
-      </form>
-      {Object.keys(toSearch).length>0 && (
+         {Object.keys(toSearch).length>0 && (
           <div className="articles-list">
             <ul>
               {toSearch &&
@@ -71,6 +69,8 @@ const Search = () => {
             </ul>
           </div>
         )}
+      </form>
+   
         <ImagesSlider/>
     </div>
   );
