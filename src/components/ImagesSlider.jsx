@@ -1,6 +1,5 @@
 import React from "react";
 import "./css-components/imagesSlider.css";
-import images from "../exports/images";
 import { motion } from "framer-motion";
 import { helpHttp } from "../helpers/helpHttp";
 import { useEffect, useState } from "react";
