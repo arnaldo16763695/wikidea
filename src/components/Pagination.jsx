@@ -15,7 +15,6 @@ const Pagination = ({ page, setPage, max }) => {
   };
 
   const onKeyDown = (e) => {
-    console.log(e)
     if (e.keyCode === 13) {
       setPage(parseInt(e.target.value));
       if (

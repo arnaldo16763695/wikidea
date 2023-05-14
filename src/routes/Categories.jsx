@@ -49,7 +49,7 @@ export default function Categories() {
           <Link
             className="card-article"
             style={{ color: "#000" }}
-            to={``}
+            to={`/articles-by-category/${category.id}`}
             key={category.id}
           >
             <div>{category.nameCategory}</div>

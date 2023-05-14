@@ -1,4 +1,4 @@
-import React from "react";
+import {Link} from "react-router-dom";
 import "./css-components/imagesSlider.css";
 import { motion } from "framer-motion";
 import { helpHttp } from "../helpers/helpHttp";
@@ -37,9 +37,9 @@ const ImagesSlider = () => {
           return (
             <motion.div className="item" key={item}>
               {/* <img src={image} alt="" /> */}
-              <a href="">
+              <Link to={`/articles-by-category/${category.id}`}>
                 <h4 className="title-category">{category.nameCategory}</h4>
-              </a>
+              </Link>
 
               {<div className={`item-category item-color${item}`}></div>}
             </motion.div>

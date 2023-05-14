@@ -3,20 +3,21 @@ import { useParams, useNavigate } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 // import { SelectCategories } from "../components/SelectCategories";
-import {toolbar} from '../toolbar'
+import { toolbar } from "../toolbar";
+import { Loader } from "../components/Loader";
 
 function ArticleEdit() {
-    const navigate = useNavigate();
-    const [category, setCategory] = useState("")
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const { articleId } = useParams();
   const [articleTitle, setArticleTitle] = useState("");
   const [article, setArticle] = useState("");
-  const [articleContent, setArticleContent] = useState("")
-  
-//   const handleChange = (e) => {
-//     setCategory(e.target.value);
-//   };
-  
+  const [articleContent, setArticleContent] = useState("");
+
+  //   const handleChange = (e) => {
+  //     setCategory(e.target.value);
+  //   };
+
   const UpdateArticle = async (data) => {
     try {
       const res = await fetch(
@@ -31,7 +32,7 @@ function ArticleEdit() {
       );
       // console.log(res);
       setArticleTitle("");
-      setCategory("");
+      //setCategory("");
       navigate(`/article/${articleId}`);
     } catch (error) {
       console.log(error);
@@ -41,19 +42,17 @@ function ArticleEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(category)
-   
+
     const data = {
       title: articleTitle,
       content: articleContent,
     };
 
-   
-    
-    if (!data.title ) {
+    if (!data.title) {
       alert("datos incompletos");
       return;
     }
-    
+
     UpdateArticle(data);
   };
 
@@ -64,6 +63,7 @@ function ArticleEdit() {
   useEffect(() => {
     const getAticle = async () => {
       try {
+        setLoading(true);
         const res = await fetch(
             `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`
           ),
@@ -71,7 +71,7 @@ function ArticleEdit() {
         setArticle(data);
         setArticleTitle(data.title);
         setArticleContent(data.content);
-        
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -90,7 +90,7 @@ function ArticleEdit() {
           onChange={(e) => setArticleTitle(e.target.value)}
           value={articleTitle}
         />
-        <h3>Categoría: {article.category?.nameCategory}</h3>
+        <p><strong>Categoría:</strong> {article.category?.nameCategory}</p>
         {/* <SelectCategories
           handleChange={handleChange}
           url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
@@ -105,13 +105,16 @@ function ArticleEdit() {
           Cancelar
         </Link> */}
       </div>
-
-      <ReactQuill
+      {loading ? (
+        <Loader />
+      ) : (
+        <ReactQuill
           theme="snow"
           value={articleContent}
           onChange={addContent}
           modules={toolbar}
         />
+      )}
     </form>
   );
 }

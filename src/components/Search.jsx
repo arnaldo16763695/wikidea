@@ -9,6 +9,7 @@ const Search = () => {
   const [articlesList, setArticlesList] = useState([]);
   const [search, setSearch] = useState("");
   const url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/`;
+
   const getArticles = async (url) => {
     try {
       const res = await fetch(url);
@@ -20,7 +21,7 @@ const Search = () => {
   };
   useEffect(() => {
     getArticles(url);
-    console.log(Object.keys(toSearch));
+    // console.log(Object.keys(toSearch));
   }, []);
   const handleChange = (e) => {
     e.preventDefault();
@@ -38,18 +39,15 @@ const Search = () => {
       }
     });
 
-    console.log(Object.keys(result).length);
-
     setToSearch(result.slice(0, 5));
   };
 
   return (
     <div className="containerSerach">
-     
       <form className="form-search" role="search">
-      <div className="title">
-        <h1>Colabry</h1>
-      </div>
+        <div className="title">
+          <h1>Colabry</h1>
+        </div>
         <input
           autoComplete="off"
           className="input-search"
@@ -57,21 +55,27 @@ const Search = () => {
           value={search}
           onChange={handleChange}
         />
-         {Object.keys(toSearch).length>0 && (
+        {Object.keys(toSearch).length > 0 && (
           <div className="articles-list">
             <ul>
-              {toSearch &&
-                toSearch.map((article) => (
-                  <li key={article.id}>
-                    <Link to={`/article/${article.id}`}><div >{article.title}</div></Link>
-                  </li>
-                ))}
+              {toSearch.map((article) => (
+                <li key={article.id}>
+                  <Link to={`/article/${article.id}`}>
+                    <div>{article.title}</div>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         )}
+        {Object.keys(toSearch).length === 0 && search ? (
+          <div className="whitoutResult">Palabra no encontrada....</div>
+        ) : (
+          ""
+        )}
       </form>
-   
-        <ImagesSlider/>
+
+      <ImagesSlider />
     </div>
   );
 };

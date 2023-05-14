@@ -10,6 +10,7 @@ import Article from "./routes/Article";
 import Categories from "./routes/Categories";
 import Articles from "./routes/Articles";
 import ArticleEdit from "./routes/ArticleEdit";
+import ArticlesByCategory from "./routes/ArticlesByCategory";
 
 const router = createHashRouter([
   {
@@ -37,6 +38,10 @@ const router = createHashRouter([
       {
         path: "list-articles",
         element: <Articles />,
+      },
+      {
+        path: "articles-by-category/:idCategory",
+        element: <ArticlesByCategory/>,
       },
     ],
   },
