@@ -52,7 +52,7 @@ export default function Categories() {
             to={`/articles-by-category/${category.id}`}
             key={category.id}
           >
-            <div>{category.nameCategory}</div>
+            <p><strong>{category.nameCategory}</strong></p>
           </Link>
         ))}
       <Pagination page={page} setPage={setPage} max={max} />

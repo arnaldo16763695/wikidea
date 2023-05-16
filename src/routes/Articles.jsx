@@ -48,7 +48,7 @@ function Articles() {
             to={`/article/${article.id}`}
             key={article.id}
           >
-            <div>{article.title}</div>
+            <p><strong>{article.title}</strong></p>
             
           </Link>
         ))}
