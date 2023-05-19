@@ -1,16 +1,17 @@
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {Loader} from "../components/Loader";
 import "./article.css";
 
 export default function Article() {
+  const [message, setMessage] = useState(false);
   const { articleId } = useParams();
   const [loading, setLoading] = useState(false);
   const [article, setArticle] = useState({});
   const [articleContent, setArticleContent] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getAticle = async () => {
       try {
@@ -30,8 +31,33 @@ export default function Article() {
     getAticle();
   }, []);
 
+  const deleteArticle = async ()=>{
+    if(confirm(`¿Estas seguro de eliminar el artículo ${article.title}?`)){
+       try {
+      const res = await fetch(
+        `https://wikideas.up.railway.app/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        {
+          method: "DELETE",
+        }
+      );
+       console.log(res);
+      
+      //setCategory("");
+      setMessage(true)
+      setTimeout(() => {
+        setMessage(false)
+        navigate(`/list-articles`);
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+    }
+    }
+   
+  }
+
   return (
     <form className="form-add-article">
+    {message && <div className="message">Articulo Eliminado</div>}
       <div className="container-inputs-add-article">
         <p>
           <strong>Título:</strong> {article.title}
@@ -47,6 +73,9 @@ export default function Article() {
         <Link to={`/edit-article/${article.id}`} className="btn-link">
           Editar
         </Link>
+        <button onClick={deleteArticle} className="link-delete btn-link">
+          Eliminar
+        </button>
         {/* <Link to={"/"} className="btn-link">
           Cancelar
         </Link> */}
