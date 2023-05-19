@@ -4,12 +4,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
+
 
 
 :root{
   --first-color : #035E4C;
   --second-color : #4C8201;
+  --second-color-alpha : rgba(76, 130, 01, 0.3);;
 }
 
 

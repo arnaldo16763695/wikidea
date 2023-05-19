@@ -1,0 +1,33 @@
+.control-pagination {
+  display: flex;
+  justify-content: center;
+}
+.control-pagination > p {
+  padding: 0.5rem;
+}
+.control-pagination > input {
+  width: 2rem;
+  margin: 0 1rem;
+  text-align: center;
+  border-radius: 5px;
+}
+.control-pagination > button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--second-color);
+  width: 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.control-pagination > button[disabled] {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: no-drop;
+}
+
+svg {
+  width: 1rem;
+  padding: 1px;
+}
