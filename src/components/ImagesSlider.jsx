@@ -31,7 +31,7 @@ const ImagesSlider = () => {
         dragConstraints={{ right: 0, left: -2000 }}
       >
         {" "}
-        {categories.map((category, item) => {
+        {Object.keys(categories).length > 0 && categories.map((category, item) => {
           if (itemColor === "") {
           }
           return (

@@ -43,7 +43,7 @@ export default function Categories() {
           bgColor={"#dc3545"}
         />
       )}
-      {categories
+      {Object.keys(categories).length >0 && categories
         .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
         .map((category) => (
           <Link
@@ -55,7 +55,11 @@ export default function Categories() {
             <p><strong>{category.nameCategory}</strong></p>
           </Link>
         ))}
-      <Pagination page={page} setPage={setPage} max={max} />
+
+        {
+          Object.keys(categories).length > 0 &&  <Pagination page={page} setPage={setPage} max={max} />
+        }
+    
     </div>
   );
 }

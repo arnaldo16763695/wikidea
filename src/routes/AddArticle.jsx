@@ -26,7 +26,7 @@ const AddArticle = () => {
           body: JSON.stringify(data),
         }
       );
-      // console.log(res);
+      // console.log(res); 08:00.0 08:00.1   10de:1d01  10de:0fb8   rev a1
       setArticleTitle("");
       setCategory("");
       navigate("/list-articles");

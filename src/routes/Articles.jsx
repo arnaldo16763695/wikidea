@@ -37,7 +37,7 @@ function Articles() {
   return (
     <div className="list-articles">
       <h1>Todos los Artículos</h1>
-      {loading && <Loader />}
+      {loading && Object.keys(articles).length > 0 && <Loader />}
 
       {articles
         .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
@@ -52,7 +52,7 @@ function Articles() {
             
           </Link>
         ))}
-      <Pagination page={page} setPage={setPage} max={max} />
+      { Object.keys(articles).length > 0 && <Pagination page={page} setPage={setPage} max={max} />}
     </div>
   );
 }

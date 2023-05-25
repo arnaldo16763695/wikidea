@@ -28,7 +28,7 @@ export const SelectCategories = ({ handleChange, url }) => {
       <option value="" >
          Elija una Categoría
       </option>
-      {categories &&
+      {Object.keys(categories).length > 0 &&
         categories.map((el) => (
           <option key={el.id} value={el.id}>
             {el.nameCategory}
