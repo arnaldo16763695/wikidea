@@ -8,7 +8,7 @@ const Search = () => {
   const [toSearch, setToSearch] = useState([]);
   const [articlesList, setArticlesList] = useState([]);
   const [search, setSearch] = useState("");
-  const url = `https://wikideas.up.railway.app/api/v1/wikideas/articles/`;
+  const url = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/`;
 
   const getArticles = async (url) => {
     try {

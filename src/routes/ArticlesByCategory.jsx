@@ -7,8 +7,8 @@ import Pagination from "../components/Pagination";
 
 const ArticlesByCategory = () => {
   const { idCategory } = useParams();
-  const url = `https://wikideas.up.railway.app/api/v1/wikideas/categories/${idCategory}/articles`;
-  const urlCategory = `https://wikideas.up.railway.app/api/v1/wikideas/categories/${idCategory}/articles`;
+  const url = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${idCategory}/articles`;
+  const urlCategory = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${idCategory}/articles`;
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

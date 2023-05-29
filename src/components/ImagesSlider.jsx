@@ -5,7 +5,7 @@ import { helpHttp } from "../helpers/helpHttp";
 import { useEffect, useState } from "react";
 
 const ImagesSlider = () => {
-  const url = "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
+  const url = "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
 

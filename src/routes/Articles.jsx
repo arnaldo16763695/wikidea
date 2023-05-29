@@ -30,7 +30,7 @@ function Articles() {
   };
   useEffect(() => {
     
-    getArticles(`https://wikideas.up.railway.app/api/v1/wikideas/articles/`);
+    getArticles(`https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/`);
     
   }, []);
 

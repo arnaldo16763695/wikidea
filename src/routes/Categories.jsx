@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 import "./categories.css";
 
 export default function Categories() {
-  const url = "https://wikideas.up.railway.app/api/v1/wikideas/categories/";
+  const url = "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

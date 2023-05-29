@@ -21,7 +21,7 @@ function ArticleEdit() {
   const UpdateArticle = async (data) => {
     try {
       const res = await fetch(
-        `https://wikideas.up.railway.app/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
         {
           method: "PATCH",
           headers: {
@@ -65,7 +65,7 @@ function ArticleEdit() {
       try {
         setLoading(true);
         const res = await fetch(
-            `https://wikideas.up.railway.app/api/v1/wikideas/articles/${articleId}`
+            `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`
           ),
           data = await res.json();
         setArticle(data);
