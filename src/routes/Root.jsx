@@ -12,7 +12,7 @@ const root = () => {
       <main id="main">
         <Outlet />
       </main>
-      <footer className="footer">
+      <footer className="footer Headlines">
         Copyright © 2022 WikiDea Todos los derechos reservados 2022 - 2023
       </footer>
     </div>
