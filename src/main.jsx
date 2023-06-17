@@ -5,12 +5,12 @@ import "./main.css";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page";
 import AddArticle from "./routes/AddArticle";
-import Search from "./components/Search";
 import Article from "./routes/Article";
 import Categories from "./routes/Categories";
 import Articles from "./routes/Articles";
 import ArticleEdit from "./routes/ArticleEdit";
 import ArticlesByCategory from "./routes/ArticlesByCategory";
+import Home from "./components/Home";
 
 const router = createHashRouter([
   {
@@ -18,7 +18,7 @@ const router = createHashRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Search /> },
+      { index: true, element: <Home /> },
       {
         path: "add-article",
         element: <AddArticle />,
@@ -41,7 +41,7 @@ const router = createHashRouter([
       },
       {
         path: "articles-by-category/:idCategory",
-        element: <ArticlesByCategory/>,
+        element: <ArticlesByCategory />,
       },
     ],
   },

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./css-components/navBar.css";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ function NavBar() {
         <span></span>
         <span></span>
       </div>
-      <div className="nav_logo">
+      {/* <div className="nav_logo">
         <Link to={"/"}>
           <svg
             width="67"
@@ -43,13 +44,14 @@ function NavBar() {
               />
             </g>
             <defs>
-              {/* <clipPath id="clip0_107_15">
+              <clipPath id="clip0_107_15">
               <rect width="67" height="48" fill="white" />
-            </clipPath> */}
+            </clipPath>
             </defs>
           </svg>
         </Link>
-      </div>
+      </div> */}
+      <Search/>
       <Link className="link-add-content" to="/add-article">
         Crear Contenido
       </Link>
