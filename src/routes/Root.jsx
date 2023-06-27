@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar";
 const root = () => {
   return (
     <div className="home-container">
-      <header className="header Headlines">
+      <header className="header">
         <NavBar />
       </header>
       <main id="main">

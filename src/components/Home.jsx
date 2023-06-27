@@ -1,12 +1,11 @@
 import "./css-components/home.css";
-import Search from "../components/Search";
-import { Carousel } from "./Carousel";
+import { MyCarousel } from "./MyCarousel";
 
 const Home = () => {
+  
   return (
     <div className="home">
-      <Carousel />
-      {/* <ImagesSlider /> */}
+      <MyCarousel />
     </div>
   );
 };
