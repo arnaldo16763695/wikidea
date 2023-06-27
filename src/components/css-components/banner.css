@@ -1,0 +1,33 @@
+.container_banner{
+    flex-grow: 1;
+    display: flex;
+    /* border: thick solid red; */
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 80%;
+}
+
+.title_banner{
+/* border: thin solid green; */
+width: 50%;
+font-size: 80px;
+
+}
+
+.title_banner p {
+    text-align: center;
+    font-weight: bold;
+    
+}
+.subtitle_banner p{
+    text-align: center;
+    /* font-weight: bold; */
+}
+
+.subtitle_banner{
+    font-size: 25px;
+    width: 50%;
+    /* border: thin solid purple; */
+}

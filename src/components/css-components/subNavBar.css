@@ -1,0 +1,23 @@
+.sub_nav_items {
+  display: flex;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  /* border: thick solid yellow; */
+  width: 80%;
+}
+.sub_nav_items > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 20px;
+  color: white;
+  margin-right: 2rem;
+  text-decoration: none;
+  border: thin solid transparent;
+  transition: 0.3s ease-in-out;
+}
+.sub_nav_items > a:hover {
+  border: thin solid white;
+  border-radius: 10px;
+}

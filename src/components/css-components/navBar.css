@@ -1,10 +1,16 @@
 .link-add-content{
-  border: 3px solid rgba(255, 255, 255, 0.24);
   padding: 0.5rem;
   text-decoration: none;
   color: white;
-  margin-right: 2rem;
-  
+  margin-right: 3rem;
+  margin-top: 1rem;
+  border: thin solid transparent;
+}
+.link-add-content:hover{
+  border: thin solid white;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+
 }
 
 .nav_items > a:hover {
@@ -91,7 +97,7 @@ cursor: pointer;
     align-items: center;
     
   }
-  .nav_items {
+  /* .nav_items {
     position: absolute;
     z-index: 1;
     top: 3rem;
@@ -104,6 +110,17 @@ cursor: pointer;
     transform: translateX(-100%);
     transition: 0.3s ease all;
     padding: 1rem;
+  } */
+
+  .nav_items{
+    display: none;
+  }
+  .nav_toggle {
+    display: none;
+  }
+  .nav_logo{
+    margin-top: 1rem;
+    margin-left: 2rem;
   }
   .nav_items > a {
     padding: 1rem;
@@ -113,11 +130,6 @@ cursor: pointer;
   }
   .nav_items.open {
     transform: translateX(0) !important;
-  }
-  .nav_toggle {
-    display: flex !important;
-    flex-direction: column;
-    margin: 15px;
   }
   .nav_toggle.open > span {
     transform: rotate(45deg) translate(0px, 0px);

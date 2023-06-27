@@ -15,7 +15,7 @@ function NavBar() {
         <span></span>
         <span></span>
       </div>
-      {/* <div className="nav_logo">
+      <div className="nav_logo">
         <Link to={"/"}>
           <svg
             width="67"
@@ -50,10 +50,10 @@ function NavBar() {
             </defs>
           </svg>
         </Link>
-      </div> */}
+      </div>
       <Search/>
       <Link className="link-add-content" to="/add-article">
-        Crear Contenido
+        Crear artículo
       </Link>
       <div className={`nav_items ${isOpen && "open"}`}>
         <Link onClick={() => setIsOpen(!isOpen)} to="/">
