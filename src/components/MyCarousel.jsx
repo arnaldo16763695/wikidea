@@ -33,7 +33,7 @@ export const MyCarousel = () => {
     });
   });
 
-  const catg =  categories.map((item, index) => (
+  const catg = categories.length && categories.map((item, index) => (
     <CardCategory
       key={index}
       name={item.nameCategory}
@@ -45,9 +45,12 @@ export const MyCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <Carousel showDots={true} responsive={responsive}>
+      {
+
+       categories.length && <Carousel showDots={true} responsive={responsive}>
         {catg}
       </Carousel>
+      }
     <h2 className="title-carousel">Nuestras categorías</h2>
     </div>
   );
