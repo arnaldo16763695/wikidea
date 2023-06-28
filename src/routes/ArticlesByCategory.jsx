@@ -57,7 +57,7 @@ const ArticlesByCategory = () => {
           bgColor={"#dc3545"}
         />
       )}
-      {articles
+      {articles.length && articles
         .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
         .map((article) => (
           <Link

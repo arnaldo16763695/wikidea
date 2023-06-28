@@ -5,6 +5,7 @@
   margin-right: 3rem;
   margin-top: 1rem;
   border: thin solid transparent;
+  font-size: 20px;
 }
 .link-add-content:hover{
   border: thin solid white;

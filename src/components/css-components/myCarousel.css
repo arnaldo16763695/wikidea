@@ -3,3 +3,12 @@
     margin-bottom: 3rem;
     align-self: center;
 }
+
+.title-carousel{
+color: white;
+margin-top: 0.6rem;
+
+text-align: center;
+user-select: none;
+/* border: thin solid red; */
+}

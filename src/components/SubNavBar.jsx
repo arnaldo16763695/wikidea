@@ -4,19 +4,17 @@ import  './css-components/subNavBar.css'
 const SubNavBar = () => {
   return (
     <div className={`sub_nav_items`}>
-        <Link onClick={() => setIsOpen(!isOpen)} to="/">
+        <Link  to="/">
           Inicio
         </Link>{" "}
-        <Link onClick={() => setIsOpen(!isOpen)} to="/add-article">
-          Crear artículo
-        </Link>{" "}
-        <Link onClick={() => setIsOpen(!isOpen)} to="/list-categories">
+        
+        <Link  to="/list-categories">
           {" "}
-          Categorías
+          Todas las categorías
         </Link>
-        <Link onClick={() => setIsOpen(!isOpen)} to="/list-articles">
+        <Link  to="/list-articles">
           {" "}
-          Articulos
+          Todos los artículos
         </Link>
       </div>
   )

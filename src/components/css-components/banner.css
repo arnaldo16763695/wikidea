@@ -1,7 +1,6 @@
 .container_banner{
     flex-grow: 1;
     display: flex;
-    /* border: thick solid red; */
     align-self: center;
     justify-content: center;
     align-items: center;
@@ -13,6 +12,7 @@
 /* border: thin solid green; */
 width: 50%;
 font-size: 80px;
+user-select: none;
 
 }
 
@@ -23,7 +23,8 @@ font-size: 80px;
 }
 .subtitle_banner p{
     text-align: center;
-    /* font-weight: bold; */
+user-select: none;
+    
 }
 
 .subtitle_banner{

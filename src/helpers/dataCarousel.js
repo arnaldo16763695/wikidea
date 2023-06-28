@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 export const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -33,7 +31,7 @@ export const urlImages = [
   },
 
   {
-    url: "../../public/images/carouselImages/culturaEntretenimiento",
+    url: "../../public/images/carouselImages/cultura-y-entretenimiento.jpg",
     id: 1,
   },
 
