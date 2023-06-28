@@ -29,7 +29,7 @@ export default function Article() {
       }
     };
     getAticle();
-  }, []);
+  }, [articleId]);
 
   const deleteArticle = async ()=>{
     if(confirm(`¿Estas seguro de eliminar el artículo ${article.title}?`)){

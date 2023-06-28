@@ -40,6 +40,14 @@ const Search = () => {
 
     setToSearch(result.slice(0, 5));
   };
+  const clearList=()=>{
+    setToSearch([])
+    setSearch('')
+  }
+
+  const clearInput = (e)=>{
+   
+  }
   return (
     <form className="form-search" role="search">
       {Object.keys(toSearch).length > 0 && (
@@ -47,7 +55,7 @@ const Search = () => {
           <ul className="ul-search">
             {toSearch.map((article) => (
               <li key={article.id}>
-                <Link to={`/article/${article.id}`}>
+                <Link to={`/article/${article.id}`} onClick={clearList}>
                   <div>{article.title}</div>
                 </Link>
               </li>
@@ -55,17 +63,18 @@ const Search = () => {
           </ul>
         </div>
       )}
-      {Object.keys(toSearch).length === 0 && search ? (
+      {/* {Object.keys(toSearch).length === 0 && search ? (
         <div className="whitoutResult">Palabra no encontrada....</div>
       ) : (
         ""
-      )}
+      )} */}
       <input
         autoComplete="off"
         className="input-search"
         type="text"
         value={search}
         onChange={handleChange}
+        onBlur={clearInput}
       />
       
     </form>
