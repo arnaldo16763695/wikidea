@@ -1,12 +1,12 @@
 
 import { Link } from "react-router-dom";
-import "./css-components/cardCategory.css";
+import "./css-components/cardCategory.css"; 
 const CardCategory = (props) => {
   return (
     <div className="card">
       
-      <Link to={''}><img className="product--image" src={props.url} alt="product image" />
-      <h3 className="title-card">{props.name}</h3></Link>
+      <Link to={''}><img className="category--image" src={props.url} alt="product image" />
+      <h4 className="title-card">{props.name}</h4></Link>
       
       {/* <p>{props.description}</p> */}
      

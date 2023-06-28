@@ -14,13 +14,13 @@ export default function Categories() {
   const [page, setPage] = useState(1);
   const [byPage, setByPage] = useState(6);
   const max = Math.ceil(categories.length / byPage);
-
+  const dataCategories = []
   let api = helpHttp();
 
   useEffect(() => {
     setLoading(true);
     api.get(url).then((res) => {
-      // console.log(res);
+       console.log(res);
       if (!res.err) {
         setCategories(res);
         setError(null);
@@ -31,6 +31,7 @@ export default function Categories() {
 
       setLoading(false);
     });
+
   }, [url]);
 
   return (

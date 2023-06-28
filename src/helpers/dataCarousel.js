@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -18,6 +20,53 @@ export const responsive = {
     items: 1,
   },
 };
+
+export const urlImages = [
+  {
+    url: "../../public/images/carouselImages/alimentacion-y-cocina.jpg",
+    id: 5,
+  },
+
+  {
+    url: "../../public/images/carouselImages/ciencia-y-tecnologia.jpg",
+    id: 2,
+  },
+
+  {
+    url: "../../public/images/carouselImages/culturaEntretenimiento",
+    id: 1,
+  },
+
+  {
+    url: "../../public/images/carouselImages/deportes.jpg",
+    id: 10,
+  },
+  {
+    url: "../../public/images/carouselImages/educacion-y-desarrollo.jpg",
+    id: 6,
+
+  },
+  {
+    url: "../../public/images/carouselImages/medio-ambiente.jpg",
+    id: 8,
+  },
+  {
+    url: "../../public/images/carouselImages/negocios-y-finanzas.jpg",
+    id: 7,
+  },
+  {
+    url: "../../public/images/carouselImages/politica.jpg",
+    id: 9,
+  },
+  {
+    url: "../../public/images/carouselImages/viaje-y-turismo.jpg",
+    id: 3,
+  },
+  {
+    url: "../../public/images/carouselImages/salud.jpg",
+    id: 4,
+  },
+];
 
 export const productData = [
   {
@@ -85,3 +134,26 @@ export const productData = [
     description: "Some text about the product..",
   },
 ];
+
+// export const dataCarousel = () => {
+//   const url =
+//     "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
+//   const [categories, setCategories] = useState([]);
+//   useEffect(() => {
+//     setLoading(true);
+//     api.get(url).then((res) => {
+//       // console.log(res);
+//       if (!res.err) {
+//         setCategories(res);
+//         setError(null);
+//       } else {
+//         setCategories(null);
+//         setError(res);
+//       }
+
+//       setLoading(false);
+//     });
+//   }, [url]);
+
+//   return categories;
+// };
