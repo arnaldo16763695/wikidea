@@ -5,22 +5,26 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
 import "./categories.css";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
+import SubNavBar from "../components/SubNavBar";
 
 export default function Categories() {
-  const url = "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
+  const url =
+    "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [byPage, setByPage] = useState(6);
   const max = Math.ceil(categories.length / byPage);
-  const dataCategories = []
+  const dataCategories = [];
   let api = helpHttp();
 
   useEffect(() => {
     setLoading(true);
     api.get(url).then((res) => {
-       console.log(res);
+      console.log(res);
       if (!res.err) {
         setCategories(res);
         setError(null);
@@ -31,36 +35,48 @@ export default function Categories() {
 
       setLoading(false);
     });
-
   }, [url]);
 
   return (
-    <div className="list-articles">
-      <h1>Todas las Categorías</h1>
-      {loading && <Loader />}
-      {error && (
-        <Message
-          msg={`Error ${error.status}: ${error.statusText}`}
-          bgColor={"#dc3545"}
-        />
-      )}
-      {Object.keys(categories).length >0 && categories
-        .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
-        .map((category) => (
-          <Link
-            className="card-article"
-            style={{ color: "#000" }}
-            to={`/articles-by-category/${category.id}`}
-            key={category.id}
-          >
-            <p><strong>{category.nameCategory}</strong></p>
-          </Link>
-        ))}
+    <div className="content-container">
+      <header className="header">
+        <NavBar backgroundColor={`background-dark`} />
+        <SubNavBar fontColor={`black-color`} />
+      </header>
+      <main id="main">
+        {" "}
+        <div className="list-articles">
+          <h1>Todas las Categorías</h1>
+          {loading && <Loader />}
+          {error && (
+            <Message
+              msg={`Error ${error.status}: ${error.statusText}`}
+              bgColor={"#dc3545"}
+            />
+          )}
+          {Object.keys(categories).length > 0 &&
+            categories
+              .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
+              .map((category) => (
+                <Link
+                  className="card-article"
+                  style={{ color: "#000" }}
+                  to={`/articles-by-category/${category.id}`}
+                  key={category.id}
+                >
+                  <p>
+                    <strong>{category.nameCategory}</strong>
+                  </p>
+                </Link>
+              ))}
 
-        {
-          Object.keys(categories).length > 0 &&  <Pagination page={page} setPage={setPage} max={max} />
-        }
-    
+          {Object.keys(categories).length > 0 && (
+            <Pagination page={page} setPage={setPage} max={max} />
+          )}
+        </div>
+      </main>
+      <Footer fontColor={"footer-font-dark"}/>
+      
     </div>
   );
 }

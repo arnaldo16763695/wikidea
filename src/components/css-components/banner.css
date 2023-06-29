@@ -11,15 +11,17 @@
 .title_banner{
 /* border: thin solid green; */
 width: 50%;
-font-size: 80px;
+
 user-select: none;
+
 
 }
 
 .title_banner p {
+    font-size: 80px;
     text-align: center;
     font-weight: bold;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .subtitle_banner p{
     text-align: center;

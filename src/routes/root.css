@@ -1,23 +1,23 @@
 .home-container {
-  
   background-color: rgba(0, 0, 0, 1);
   min-height: 100vh;
-  background-image: url('/public/images/fondo_mountains.jpg');  
+  background-image: url("/public/images/fondo_mountains.jpg");
   background-repeat: no-repeat, repeat;
   background-size: cover;
-  
 }
-.shadow-home{
+.content-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #223ecd10;
+  background-color: #cccccc;
+  background-image: linear-gradient(rgb(106, 106, 124), rgb(231, 242, 246));
+  min-height: 100vh;
+}
+.shadow-home {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
-  min-height: 100vh;  
-}
-
-.footer {
-  text-align: center;
-  padding: 1rem;
-  color: #eee;
+  min-height: 100vh;
 }
 
 .Headlines {
@@ -33,21 +33,23 @@
 
 main {
   position: relative;
-  flex-grow: 1; 
- 
+  flex-grow: 1;
+}
+
+.editor-article{
+  background-color: #f1f1f1;
+  box-shadow: 5px 5px 12.5px grey;
 }
 
 @media screen and (min-width: 1024px) {
   .home-container {
     display: flex;
     flex-direction: column;
-    
+
     /* border: thick solid rebeccapurple; */
   }
   .header {
     width: 100%;
     background-color: transparent;
   }
-
-
 }

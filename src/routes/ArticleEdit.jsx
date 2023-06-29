@@ -5,6 +5,9 @@ import ReactQuill from "react-quill";
 // import { SelectCategories } from "../components/SelectCategories";
 import { toolbar } from "../toolbar";
 import { Loader } from "../components/Loader";
+import NavBar from "../components/NavBar";
+import SubNavBar from "../components/SubNavBar";
+import Footer from "../components/Footer";
 
 function ArticleEdit() {
   const [loading, setLoading] = useState(false);
@@ -81,41 +84,53 @@ function ArticleEdit() {
     // console.log(JSON.stringify(article));
   }, []);
   return (
-    <form className="form-add-article" onSubmit={handleSubmit}>
-      <div className="container-inputs-add-article">
-        <input
-          type="text"
-          placeholder="Título de tu Artículo"
-          className="input"
-          onChange={(e) => setArticleTitle(e.target.value)}
-          value={articleTitle}
-        />
-        <p><strong>Categoría:</strong> {article.category?.nameCategory}</p>
-        {/* <SelectCategories
+    <div className="content-container">
+      <header className="header">
+        <NavBar backgroundColor={`background-dark`} />
+        <SubNavBar fontColor={`black-color`} />
+      </header>
+      <main id="main">
+        <form className="form-add-article" onSubmit={handleSubmit}>
+          <div className="container-inputs-add-article">
+            <input
+              type="text"
+              placeholder="Título de tu Artículo"
+              className="input"
+              onChange={(e) => setArticleTitle(e.target.value)}
+              value={articleTitle}
+            />
+            <p>
+              <strong>Categoría:</strong> {article.category?.nameCategory}
+            </p>
+            {/* <SelectCategories
           handleChange={handleChange}
           url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
           
         /> */}
-      </div>
-      <div className="container-buttons-add-article">
-        <button type="submit" className="btn-button">
-          Guardar
-        </button>
-        {/* <Link to={"/"} className="btn-link">
+          </div>
+          <div className="container-buttons-add-article">
+            <button type="submit" className="btn-button">
+              Guardar
+            </button>
+            {/* <Link to={"/"} className="btn-link">
           Cancelar
         </Link> */}
-      </div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <ReactQuill
-          theme="snow"
-          value={articleContent}
-          onChange={addContent}
-          modules={toolbar}
-        />
-      )}
-    </form>
+          </div>
+          {loading ? (
+            <Loader />
+          ) : (
+            <ReactQuill
+              theme="snow"
+              value={articleContent}
+              onChange={addContent}
+              modules={toolbar}
+            />
+          )}
+        </form>
+      </main>
+      
+      <Footer fontColor={"footer-font-dark"} />
+    </div>
   );
 }
 

@@ -13,10 +13,12 @@
   border-radius: 10px;
   width: 100%;
   font-size: medium;
-  background-color: rgb(250, 250, 250);
+  background-color: #f1f1f1;
   text-indent: 3rem;
   height: 2rem;
 }
+
+
 
 .articles-list {
   align-self: center;
@@ -41,7 +43,7 @@
 }
 
 .articles-list li:hover {
-  background-color: gray;
+  background-color: lightgray;
 }
 
 .whitoutResult {
@@ -82,7 +84,5 @@
    
   }
 
-  .articles-list li:hover {
-    background-color: gray;
-  }
+ 
 }

@@ -1,60 +1,77 @@
-.form-add-article{
-  /* border: thick solid; */
+.form-add-article {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  
+  /* border: thin solid salmon; */
 }
-.container-inputs-add-article{
+.container-inputs-add-article {
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
   justify-content: space-around;
-  /* border: thick solid rebeccapurple; */
-  width: 80%;
+  /* border: thick solid red; */
 }
 
-.input{
+.input {
   height: 2rem;
   margin: 1rem 0rem 1rem 0;
   width: 80%;
   text-indent: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
 }
 
-.container-buttons-add-article{
+.container-buttons-add-article {
   display: flex;
   justify-content: flex-end;
   align-self: center;
-  width: 80%;
   margin-bottom: 1rem;
+  /* border: thin solid black; */
+  width: 100%;
+}
+
+.btn-button,
+.btn-link {
+  margin-top: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: black;
+  font-weight: bold;
+  padding: 0.4rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+.btn-link:hover {  
+  border: 2px solid rgba(2, 2, 2, 1);
+  border-radius: 10px; 
   
 }
 
-.btn-button, .btn-link{
- border: 1px solid rgba(2, 2, 2, 0.5);
- font-size: 16px;
- margin-left: 1rem;
- background-color: #035e4c ;
- color: white;
- padding: 4px;
- 
+.btn-button:hover{
+  border: 2px solid rgba(2, 2, 2, 1);
+  border-radius: 10px;
 }
 
-.btn-link{
-  text-decoration: none; 
-}
+.btn-link {
+  text-decoration: none;
+} 
 
-.editor{
-  margin: 1rem;
-}
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   .container-inputs-add-article{
     flex-direction: row;
-    /* border: thick solid rebeccapurple; */
+   
     width: 80%;
+  }
+
+  .container-buttons-add-article{    
+    width: 100%;
   }
 
   .input{
@@ -65,21 +82,11 @@
    width: 80%;
   margin: auto;
   }
-}
+} */
 
 @media screen and (min-width: 768px) {
-  .container-inputs-add-article{
-    flex-direction: row;
-    /* border: thick solid rebeccapurple; */
+  .form-add-article {
     width: 80%;
-  }
-
-  .input{
-   
-    width: 30%;
-  }
-  .form-add-article{
-   width: 80%;
-  margin: auto;
+    margin: auto;
   }
 }

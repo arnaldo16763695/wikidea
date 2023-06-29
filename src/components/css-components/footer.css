@@ -1,0 +1,14 @@
+.footer {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .footer-font-dark {
+    color: black;
+    font-weight: bold;
+    
+  }
+  .footer-font-light {
+    color: white;
+    /* font-weight: bold; */
+  }

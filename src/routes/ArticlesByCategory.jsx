@@ -4,6 +4,9 @@ import { helpHttp } from "../helpers/helpHttp";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
+import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
+import SubNavBar from "../components/SubNavBar";
 
 const ArticlesByCategory = () => {
   const { idCategory } = useParams();
@@ -48,38 +51,47 @@ const ArticlesByCategory = () => {
   }, []);
 
   return (
-    <div className="list-articles">
-      <h1>Articulos de la Categoría </h1>
-      {loading && <Loader />}
-      {error && (
-        <Message
-          msg={`Error ${error.status}: ${error.statusText}`}
-          bgColor={"#dc3545"}
-        />
-      )}
-      {articles.length && articles
-        .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
-        .map((article) => (
-          <Link
-            className="card-article"
-            style={{ color: "#000" }}
-            to={`/article/${article.id}`}
-            key={article.id}
-          >
-            
-              <p>
-                <strong>Título:</strong> {article.title}
-              </p>
-            
-            
-             <p>
-               <strong>Categoría: </strong>
-               {article.category?.nameCategory}
-             </p>
-            
-          </Link>
-        ))}
-      <Pagination page={page} setPage={setPage} max={max} />
+    <div className="content-container">
+      <header className="header">
+        <NavBar backgroundColor={`background-dark`} />
+        <SubNavBar fontColor={`black-color`} />
+      </header>
+      <main id="main">
+        {" "}
+        <div className="list-articles">
+          <h1>Articulos de la Categoría </h1>
+          {loading && <Loader />}
+          {error && (
+            <Message
+              msg={`Error ${error.status}: ${error.statusText}`}
+              bgColor={"#dc3545"}
+            />
+          )}
+          {articles.length &&
+            articles
+              .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
+              .map((article) => (
+                <Link
+                  className="card-article"
+                  style={{ color: "#000" }}
+                  to={`/article/${article.id}`}
+                  key={article.id}
+                >
+                  <p>
+                    <strong>Título:</strong> {article.title}
+                  </p>
+
+                  <p>
+                    <strong>Categoría: </strong>
+                    {article.category?.nameCategory}
+                  </p>
+                </Link>
+              ))}
+          <Pagination page={page} setPage={setPage} max={max} />
+        </div>
+      </main>
+
+      <Footer fontColor={"footer-font-dark"} />
     </div>
   );
 };

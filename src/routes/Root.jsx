@@ -17,7 +17,7 @@ const root = () => {
         <main id="main">
           <Home/>
         </main>
-        <Footer/>
+        <Footer fontColor={'footer-font-light'}/>
       </div>
     </div>
   );

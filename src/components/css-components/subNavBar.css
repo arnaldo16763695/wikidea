@@ -13,21 +13,24 @@
   font-size: 20px;
   margin-right: 2rem;
   text-decoration: none;
-  border: thin solid transparent;
+  border: 2px solid transparent;
   transition: 0.3s ease-in-out;
 }
 
 .black-color {
   color: black;
+  font-weight: bold;
 }
 .black-color:hover {
-  border: thin solid black;
+  border: 2px solid black;
   border-radius: 10px;
 }
 .white-color {
   color: white;
+  font-weight: bold;
+
 }
 .white-color:hover {
-  border: thin solid white;
+  border: 2px solid white;
   border-radius: 10px;
 }

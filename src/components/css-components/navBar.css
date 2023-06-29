@@ -2,7 +2,7 @@
   padding: 0.5rem;
   text-decoration: none;
   color: white;
-  margin-right: 3rem;
+  margin-right: 4rem;
   border: thin solid transparent;
   font-size: 20px;
 }
@@ -107,7 +107,7 @@ cursor: pointer;
     background-color: transparent;
   }
   .background-dark{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
   }
   /* .nav_items {
     position: absolute;
