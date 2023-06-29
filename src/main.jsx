@@ -17,33 +17,36 @@ const router = createHashRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <Home /> },
-      {
-        path: "add-article",
-        element: <AddArticle />,
-      },
-      {
-        path: "article/:articleId",
-        element: <Article />,
-      },
-      {
-        path: "edit-article/:articleId",
-        element: <ArticleEdit />,
-      },
-      {
-        path: "list-categories",
-        element: <Categories />,
-      },
-      {
-        path: "list-articles",
-        element: <Articles />,
-      },
-      {
-        path: "articles-by-category/:idCategory",
-        element: <ArticlesByCategory />,
-      },
-    ],
+  },
+  {
+    path: "add-article",
+    element: <AddArticle />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "article/:articleId",
+    element: <Article />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "edit-article/:articleId",
+    element: <ArticleEdit />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "list-categories",
+    element: <Categories />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "list-articles",
+    element: <Articles />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "articles-by-category/:idCategory",
+    element: <ArticlesByCategory />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

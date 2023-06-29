@@ -11,13 +11,23 @@
   align-items: center;
   padding: 0.5rem;
   font-size: 20px;
-  color: white;
   margin-right: 2rem;
   text-decoration: none;
   border: thin solid transparent;
   transition: 0.3s ease-in-out;
 }
-.sub_nav_items > a:hover {
+
+.black-color {
+  color: black;
+}
+.black-color:hover {
+  border: thin solid black;
+  border-radius: 10px;
+}
+.white-color {
+  color: white;
+}
+.white-color:hover {
   border: thin solid white;
   border-radius: 10px;
 }

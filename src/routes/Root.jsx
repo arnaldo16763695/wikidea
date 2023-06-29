@@ -4,17 +4,18 @@ import "./root.css";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
+import Home from "../components/Home";
 
 const root = () => {
   return (
     <div className="home-container">
       <div className="shadow-home">
         <header className="header">
-          <NavBar />
-          <SubNavBar/>
+          <NavBar backgroundColor={`background-trans`} />
+          <SubNavBar fontColor={`white-color`}/>
         </header>
         <main id="main">
-          <Outlet />
+          <Home/>
         </main>
         <Footer/>
       </div>

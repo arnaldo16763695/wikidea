@@ -3,10 +3,10 @@ import "./css-components/navBar.css";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 
-function NavBar() {
+function NavBar(props) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="navBar">
+    <div className={`navBar ${props.backgroundColor}`}>
       <div
         className={`nav_toggle ${isOpen && "open"}`}
         onClick={() => setIsOpen(!isOpen)}
@@ -16,7 +16,7 @@ function NavBar() {
         <span></span>
       </div>
       <div className="nav_logo">
-        <Link to={"/"}>
+        <Link to={"/"} className="link-logo">
           <svg
             width="67"
             height="48"
@@ -71,7 +71,7 @@ function NavBar() {
           Articulos
         </Link>
       </div>
-    </header>
+    </div>
   );
 }
 

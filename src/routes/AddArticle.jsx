@@ -4,7 +4,10 @@ import { useState } from "react";
 import "./AddArticle.css";
 import { Link, useNavigate } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
-import {toolbar} from '../toolbar'
+import { toolbar } from "../toolbar";
+import NavBar from "../components/NavBar";
+import SubNavBar from "../components/SubNavBar";
+import Footer from "../components/Footer";
 const AddArticle = () => {
   const navigate = useNavigate();
   const [articleTitle, setArticleTitle] = useState("");
@@ -58,39 +61,47 @@ const AddArticle = () => {
   };
 
   return (
-    <>
-      <form className="form-add-article" onSubmit={handleSubmit}>
-        <div className="container-inputs-add-article">
-          <input
-            type="text"
-            placeholder="Título de tu Artículo"
-            className="input"
-            onChange={(e) => setArticleTitle(e.target.value)}
-            value={articleTitle}
-          />
-          <SelectCategories
-            handleChange={handleChange}
-            url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
-          />
-        </div>
-        <div className="container-buttons-add-article">
-          <button type="submit" className="btn-button">
-            Guardar
-          </button>
-          <Link to={"/"} className="btn-link">
-            Cancelar
-          </Link>
-        </div>
-        
-        <ReactQuill
-          theme="snow"
-          value={articleContent}
-          onChange={addContent}
-          modules={toolbar}
-          
-        />
-      </form>
-    </>
+    <div >
+      <div >
+        <header className="header">
+          <NavBar backgroundColor={`background-dark`}/>
+          <SubNavBar fontColor={`black-color`}/>
+        </header>
+        <main id="main">
+          <form className="form-add-article" onSubmit={handleSubmit}>
+            <div className="container-inputs-add-article">
+              <input
+                type="text"
+                placeholder="Título de tu Artículo"
+                className="input"
+                onChange={(e) => setArticleTitle(e.target.value)}
+                value={articleTitle}
+              />
+              <SelectCategories
+                handleChange={handleChange}
+                url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+              />
+            </div>
+            <div className="container-buttons-add-article">
+              <button type="submit" className="btn-button">
+                Guardar
+              </button>
+              <Link to={"/"} className="btn-link">
+                Cancelar
+              </Link>
+            </div>
+
+            <ReactQuill
+              theme="snow"
+              value={articleContent}
+              onChange={addContent}
+              modules={toolbar}
+            />
+          </form>
+        </main>
+        <Footer/>
+      </div>
+    </div>
   );
 };
 
