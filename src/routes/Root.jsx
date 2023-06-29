@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import "./root.css";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
+import Footer from "../components/Footer";
 
 const root = () => {
   return (
@@ -15,9 +16,7 @@ const root = () => {
         <main id="main">
           <Outlet />
         </main>
-        <footer className="footer Headlines">
-          Copyright © 2022 WikiDea Todos los derechos reservados 2022 - 2023
-        </footer>
+        <Footer/>
       </div>
     </div>
   );
