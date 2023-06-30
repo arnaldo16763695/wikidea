@@ -21,47 +21,47 @@ export const responsive = {
 
 export const urlImages = [
   {
-    url: "public/images/alimentacion-y-cocina.jpg",
+    url: "/public/images/alimentacion-y-cocina.jpg",
     id: 5,
   },
 
   {
-    url: "public/images/ciencia-y-tecnologia.jpg",
+    url: "/public/images/ciencia-y-tecnologia.jpg",
     id: 2,
   },
 
   {
-    url: "public/images/cultura-y-entretenimiento.jpg",
+    url: "/public/images/cultura-y-entretenimiento.jpg",
     id: 1,
   },
 
   {
-    url: "public/images/deportes.jpg",
+    url: "/public/images/deportes.jpg",
     id: 10,
   },
   {
-    url: "public/images/educacion-y-desarrollo.jpg",
+    url: "/public/images/educacion-y-desarrollo.jpg",
     id: 6,
 
   },
   {
-    url: "public/images/medio-ambiente.jpg",
+    url: "/public/images/medio-ambiente.jpg",
     id: 8,
   },
   {
-    url: "public/images/negocios-y-finanzas.jpg",
+    url: "/public/images/negocios-y-finanzas.jpg",
     id: 7,
   },
   {
-    url: "public/images/politica.jpg",
+    url: "/public/images/politica.jpg",
     id: 9,
   },
   {
-    url: "public/images/viaje-y-turismo.jpg",
+    url: "/public/images/viaje-y-turismo.jpg",
     id: 3,
   },
   {
-    url: "public/images/salud.jpg",
+    url: "/public/images/salud.jpg",
     id: 4,
   },
 ];
