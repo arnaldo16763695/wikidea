@@ -11,6 +11,7 @@
 .title_banner {
   /* border: thin solid green; */
   width: 50%;
+  opacity: 0.8;
 
   user-select: none;
 }
@@ -24,6 +25,7 @@
 .subtitle_banner p {
   text-align: center;
   user-select: none;
+  opacity: 0.8;
 }
 
 .subtitle_banner {
@@ -31,8 +33,6 @@
   width: 50%;
   /* border: thin solid purple; */
 }
-
-
 
 @media screen and (max-width: 768px) {
   .container_banner {
@@ -50,11 +50,9 @@
     display: none;
   }
 
-  .title_banner{
+  .title_banner {
     width: 100%;
     opacity: 0.8;
-  
-
   }
 
   .title_banner p {

@@ -5,6 +5,8 @@
   margin-right: 4rem;
   border: thin solid transparent;
   font-size: 20px;
+  opacity: 0.8;
+
 }
 .link-add-content:hover {
   border: thin solid white;
