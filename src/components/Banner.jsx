@@ -1,3 +1,4 @@
+import SearchMain from "./SearchMain";
 import "./css-components/banner.css";
 
 const Banner = () => {
@@ -9,7 +10,10 @@ const Banner = () => {
       <div className="subtitle_banner">
         <p>TU ENCICLOPEDIA COLABORATIVA</p>
         <p>Crea y edita artículos sobre infinidades de temas. </p>
+        
       </div>
+      <SearchMain/>
+      
     </div>
   );
 };

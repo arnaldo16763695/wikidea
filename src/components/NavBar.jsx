@@ -45,13 +45,13 @@ function NavBar(props) {
             </g>
             <defs>
               <clipPath id="clip0_107_15">
-              <rect width="67" height="48" fill="white" />
-            </clipPath>
+                <rect width="67" height="48" fill="white" />
+              </clipPath>
             </defs>
           </svg>
         </Link>
       </div>
-      <Search/>
+      <Search /> 
       <Link className="link-add-content" to="/add-article">
         Crear artículo
       </Link>

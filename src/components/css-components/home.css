@@ -7,11 +7,15 @@
   justify-content: space-between;
   width: 100%;
   
+  
   /* background-color: var(--second-color) */
   /* background-image: url(../../../public/images/fondo.jpg); */
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 415px) {
+.home{
+  justify-content: center;
 
+}
 
 }

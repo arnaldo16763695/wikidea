@@ -34,3 +34,9 @@
   border: 2px solid white;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .sub_nav_items > a {  
+   display: none;
+  }
+}

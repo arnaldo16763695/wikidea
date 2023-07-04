@@ -1,7 +1,7 @@
 .home-container {
   background-color: rgba(0, 0, 0, 1);
   min-height: 100vh;
-  background-image: url("/public/images/fondo_mountains.jpg");
+  background-image: url("/images/fondo_mountains.jpg");
   background-repeat: no-repeat, repeat;
   background-size: cover;
 }
@@ -29,6 +29,7 @@
 .header {
   width: 100%;
   background-color: transparent;
+  /* border: thick solid yellow; */
 }
 
 main {

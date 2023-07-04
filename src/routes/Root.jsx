@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
+import FooterMobile from "../components/FooterMobile";
 
 const root = () => {
   return (
@@ -18,6 +19,7 @@ const root = () => {
           <Home/>
         </main>
         <Footer fontColor={'footer-font-light'}/>
+        <FooterMobile/>
       </div>
     </div>
   );

@@ -1,14 +1,28 @@
-.carousel-container{
-    width: 80%;
-    margin-bottom: 3rem;
-    align-self: center;
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 3rem;
+  align-self: center;
 }
 
-.title-carousel{
-color: white;
-margin-top: 0.6rem;
+.title-carousel {
+  color: white;
+  margin-top: 0.6rem;
+  text-align: center;
+  user-select: none;
+  /* border: thin solid red; */
+}
 
-text-align: center;
-user-select: none;
-/* border: thin solid red; */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    margin-bottom: 5rem;
+    align-self: center;
+    
+  }
+
+  .title-carousel{
+    order: -1;
+    margin-bottom: 1rem;
+  }
 }

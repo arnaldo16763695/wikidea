@@ -1,4 +1,4 @@
-.link-add-content{
+.link-add-content {
   padding: 0.5rem;
   text-decoration: none;
   color: white;
@@ -6,36 +6,36 @@
   border: thin solid transparent;
   font-size: 20px;
 }
-.link-add-content:hover{
+.link-add-content:hover {
   border: thin solid white;
   border-radius: 10px;
   transition: 0.3s ease-in-out;
-
 }
 
 .nav_items > a:hover {
- background-color: gray;
- color: white;
- transition: all 0.5s ease ease-in-out;
- }
-
- .nav_toggle {
-cursor: pointer;
+  background-color: gray;
+  color: white;
+  transition: all 0.5s ease ease-in-out;
 }
 
-.logo{
+.nav_toggle {
+  cursor: pointer;
+}
+
+.logo {
   width: 4rem;
   height: 3rem;
+  
 }
 
-.link-logo{
+.link-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media (max-width: 768px) {
-  .link-add-content{
+  .link-add-content {
     display: none;
   }
   .navBar {
@@ -43,11 +43,11 @@ cursor: pointer;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    
+    /* border: thick solid salmon; */
   }
   .nav_items {
     position: absolute;
-    z-index: 1;
+    z-index: 10000;
     top: 3rem;
     left: 0;
     background-color: #222;
@@ -95,7 +95,6 @@ cursor: pointer;
 }
 
 @media (min-width: 768px) {
- 
   .navBar {
     display: flex;
     flex-wrap: nowrap;
@@ -103,34 +102,20 @@ cursor: pointer;
     align-items: center;
     padding: 0.5rem;
   }
-  .background-trans{
+  .background-trans {
     background-color: transparent;
   }
-  .background-dark{
+  .background-dark {
     background-color: rgba(0, 0, 0, 0.8);
   }
-  /* .nav_items {
-    position: absolute;
-    z-index: 1;
-    top: 3rem;
-    left: 0;
-    background-color: #222;
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    height: -webkit-fill-available;
-    transform: translateX(-100%);
-    transition: 0.3s ease all;
-    padding: 1rem;
-  } */
 
-  .nav_items{
+  .nav_items {
     display: none;
   }
   .nav_toggle {
     display: none;
   }
-  .nav_logo{
+  .nav_logo {
     margin-left: 3rem;
   }
   .nav_items > a {
@@ -163,25 +148,24 @@ cursor: pointer;
   }
 }
 
- @media screen and (max-width: 390px) {
+@media screen and (max-width: 768px) {
   .navBar {
     background-color: #222;
     display: flex;
     flex-direction: row;
-    height: 2rem;
+    height: 3rem;
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo{
+  .logo {
     width: 3rem;
     height: 2rem;
   }
 
-
   .nav_items {
     position: absolute;
-    z-index: 1;
+    z-index: 10000;
     top: 3rem;
     left: 0;
     background-color: #222;
@@ -226,4 +210,4 @@ cursor: pointer;
     transform-origin: 5px 0px;
     transition: all 0.2s linear;
   }
-} 
+}

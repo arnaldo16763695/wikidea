@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css-components/search.css";
 import { Link } from "react-router-dom";
 
-const Search = () => {
+const SearchMain = () => {
   const [toSearch, setToSearch] = useState([]);
   const [articlesList, setArticlesList] = useState([]);
   const [search, setSearch] = useState("");
@@ -46,7 +46,7 @@ const Search = () => {
 
   const clearInput = (e) => {};
   return (
-    <form className="form-search" role="search">
+    <form className="form-search-main" role="search">
       {Object.keys(toSearch).length > 0 && (
         <div className="articles-list">
           <ul className="ul-search">
@@ -77,4 +77,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchMain;
