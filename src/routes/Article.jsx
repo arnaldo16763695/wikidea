@@ -64,9 +64,9 @@ export default function Article() {
         <SubNavBar fontColor={`black-color`} />
       </header>
       <main id="main">
-        <form className="form-add-article">
+        <form className="form-view-article">
           {message && <div className="message">Articulo Eliminado</div>}
-          <div className="container-inputs-add-article">
+          <div className="container-inputs-view-article">
             <p>
               <strong>Título:</strong> {article.title}
             </p>

@@ -8,6 +8,7 @@ import { toolbar } from "../toolbar";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
+import FooterMobile from "../components/FooterMobile";
 const AddArticle = () => {
   const navigate = useNavigate();
   const [articleTitle, setArticleTitle] = useState("");
@@ -72,7 +73,7 @@ const AddArticle = () => {
             <input
               type="text"
               placeholder="Título de tu Artículo"
-              className="input"
+              className="input-add-article"
               onChange={(e) => setArticleTitle(e.target.value)}
               value={articleTitle}
             />
@@ -87,7 +88,7 @@ const AddArticle = () => {
             value={articleContent}
             onChange={addContent}
             modules={toolbar}
-            placeholder="Escribe a quí tu articulo. Recuerda colocar un título y escoger la categoría adecuada."
+            placeholder="Escribe aquí el contenido de tu artículo."
             className="editor-article"
           />
           <div className="container-buttons-add-article">
@@ -101,6 +102,8 @@ const AddArticle = () => {
         </form>
       </main>
       <Footer fontColor={"footer-font-dark"} />
+      <FooterMobile svgLeft={'svgHome'} svgRight={'svgSave'} linkLeft={'/'} linkRight={'/add-article'} isButton={true} handleSubmit={handleSubmit}/>
+
     </div>
   );
 };

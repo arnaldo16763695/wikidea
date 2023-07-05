@@ -3,8 +3,10 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* border: thin solid salmon; */
+  width: 80%;
+  margin: auto;
 }
+
 .container-inputs-add-article {
   display: flex;
   flex-direction: column;
@@ -14,8 +16,8 @@
   /* border: thick solid red; */
 }
 
-.input {
-  height: 2rem;
+.input-add-article {
+  height: 2rem;  
   margin: 1rem 0rem 1rem 0;
   width: 80%;
   text-indent: 5px;
@@ -47,46 +49,68 @@
   cursor: pointer;
 }
 
-
-.btn-link:hover {  
+.btn-link:hover {
   border: 2px solid rgba(2, 2, 2, 1);
-  border-radius: 10px; 
-  
+  border-radius: 10px;
 }
 
-.btn-button:hover{
+.btn-button:hover {
   border: 2px solid rgba(2, 2, 2, 1);
   border-radius: 10px;
 }
 
 .btn-link {
   text-decoration: none;
-} 
+}
 
-/* @media screen and (min-width: 1024px) {
-  .container-inputs-add-article{
-    flex-direction: row;
-   
-    width: 80%;
+@media screen and (max-width: 768px) {
+  .content-container {
+    /* border: thick solid salmon; */
   }
 
-  .container-buttons-add-article{    
+  .header {
+    /* border: thick solid rebeccapurple; */
+  }
+
+  main {
+    /* border: thick solid blue; */
+  }
+  .footer-mobile {
+    /* border: thick solid yellow; */
+  }
+
+  .btn-button {
+    display: none;
+  }
+  .container-buttons-add-article {
+    display: none;
+  }
+
+  .editor-article {
+    /* border: thick solid pink; */
+    margin-bottom: 4rem;
+  }
+
+  .container-inputs-add-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: space-around;
     width: 100%;
   }
 
-  .input{
-    
-    width: 30%;
-  }
-  .form-add-article{
-   width: 80%;
-  margin: auto;
-  }
-} */
-
-@media screen and (min-width: 768px) {
   .form-add-article {
-    width: 80%;
-    margin: auto;
+    /* border: thick solid green; */
+    width: 100%;
   }
+
+  .input-add-article {
+    width: 100%;
+    text-indent: 5px;
+    border-radius: 10px;
+    height: 2.5rem;
+  }
+
+ 
 }
