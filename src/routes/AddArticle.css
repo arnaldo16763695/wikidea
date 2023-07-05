@@ -9,17 +9,17 @@
 
 .container-inputs-add-article {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  align-self: center;
   justify-content: space-around;
-  /* border: thick solid red; */
+  width: 100%;
 }
 
 .input-add-article {
-  height: 2rem;  
+  height: 2rem;
   margin: 1rem 0rem 1rem 0;
-  width: 80%;
+ 
+
+  width: 60%;
   text-indent: 5px;
   border-radius: 10px;
   background-color: #f1f1f1;
@@ -63,22 +63,19 @@
   text-decoration: none;
 }
 
+.container-label-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.container-label-input label{
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 768px) {
-  .content-container {
-    /* border: thick solid salmon; */
-  }
-
-  .header {
-    /* border: thick solid rebeccapurple; */
-  }
-
-  main {
-    /* border: thick solid blue; */
-  }
-  .footer-mobile {
-    /* border: thick solid yellow; */
-  }
-
   .btn-button {
     display: none;
   }
@@ -111,6 +108,4 @@
     border-radius: 10px;
     height: 2.5rem;
   }
-
- 
 }

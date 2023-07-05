@@ -66,21 +66,29 @@ const AddArticle = () => {
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
+        <h2 style={{textAlign: 'center', fontWeight: 'bold'}}>Crear Artículo</h2>
       </header>
       <main id="main">
         <form className="form-add-article" onSubmit={handleSubmit}>
           <div className="container-inputs-add-article">
-            <input
-              type="text"
-              placeholder="Título de tu Artículo"
-              className="input-add-article"
-              onChange={(e) => setArticleTitle(e.target.value)}
-              value={articleTitle}
-            />
-            <SelectCategories
-              handleChange={handleChange}
-              url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
-            />
+           <div  className="container-label-input">
+             <label htmlFor="input-add-article">Título</label>
+             <input
+               type="text"
+               placeholder="Título de tu Artículo"
+               className="input-add-article"
+               onChange={(e) => setArticleTitle(e.target.value)}
+               value={articleTitle}
+               id="input-add-article"
+             />
+           </div>
+           <div className="container-label-input">
+             <label htmlFor="select">Categoría</label>
+             <SelectCategories
+               handleChange={handleChange}
+               url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+             />
+           </div>
           </div>
 
           <ReactQuill

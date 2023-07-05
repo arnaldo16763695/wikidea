@@ -64,11 +64,11 @@ function NavBar(props) {
         </Link>{" "}
         <Link onClick={() => setIsOpen(!isOpen)} to="/list-categories">
           {" "}
-          Categorías
+          Todas las categorías
         </Link>
         <Link onClick={() => setIsOpen(!isOpen)} to="/list-articles">
           {" "}
-          Articulos
+          Todos los articulos
         </Link>
       </div>
     </div>
