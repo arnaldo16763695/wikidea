@@ -104,8 +104,21 @@
 
   .input-add-article {
     width: 100%;
+    margin: 0.5rem 0rem 1rem 0;
     text-indent: 5px;
     border-radius: 10px;
     height: 2.5rem;
   }
+  .container-label-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .container-label-input label{
+    align-self: flex-start;
+    
+  }
+
+
 }
