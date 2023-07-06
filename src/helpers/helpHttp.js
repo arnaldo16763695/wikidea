@@ -42,6 +42,10 @@ export const helpHttp = () => {
     options.method = "PUT";
     return customFetch(url, options);
   };
+  const patch = (url, options = {}) => {
+    options.method = "PATCH";
+    return customFetch(url, options);
+  };
 
   const del = (url, options = {}) => {
     options.method = "DELETE";
@@ -53,5 +57,6 @@ export const helpHttp = () => {
     post,
     put,
     del,
+    patch,
   };
 };

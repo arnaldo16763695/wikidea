@@ -66,7 +66,7 @@ const AddArticle = () => {
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
-        <h2 style={{textAlign: 'center', fontWeight: 'bold'}}>Crear Artículo</h2>
+        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Crear Artículo</h2>
       </header>
       <main id="main">
         <form className="form-add-article" onSubmit={handleSubmit}>

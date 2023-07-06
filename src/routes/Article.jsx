@@ -7,6 +7,7 @@ import "./article.css";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
+import FooterMobile from "../components/FooterMobile";
 
 export default function Article() {
   const [message, setMessage] = useState(false);
@@ -62,6 +63,8 @@ export default function Article() {
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
+        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Contenido del Artículo</h2>
+
       </header>
       <main id="main">
         <form className="form-view-article">
@@ -78,15 +81,12 @@ export default function Article() {
             </div>
           </div>
           <div className="container-buttons-add-article">
+            <button onClick={deleteArticle} className="btn-delete btn-link ">
+              Eliminar
+            </button>
             <Link to={`/edit-article/${article.id}`} className="btn-link">
               Editar
             </Link>
-            <button onClick={deleteArticle} className="link-delete btn-link">
-              Eliminar
-            </button>
-            {/* <Link to={"/"} className="btn-link">
-          Cancelar
-        </Link> */}
           </div>
           {loading && <Loader />}
           <ReactQuill
@@ -94,10 +94,13 @@ export default function Article() {
             theme={false}
             value={articleContent}
             readOnly
+            className="editor-article"
           />
         </form>
       </main>
       <Footer fontColor={"footer-font-dark"} />
+      <FooterMobile svgLeft={'svgHome'} svgRight={'svgEdit'} linkLeft={'/'} linkRight={`/edit-article/${articleId}`} isButton={false} />
+      
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 // import { SelectCategories } from "../components/SelectCategories";
@@ -8,6 +8,8 @@ import { Loader } from "../components/Loader";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
+import "./articleEdit.css";
+import { SelectCategories } from "../components/SelectCategories";
 
 function ArticleEdit() {
   const [loading, setLoading] = useState(false);
@@ -16,6 +18,10 @@ function ArticleEdit() {
   const [articleTitle, setArticleTitle] = useState("");
   const [article, setArticle] = useState("");
   const [articleContent, setArticleContent] = useState("");
+  const [category, setCategory] = useState("");
+  const handleChange = (e) => {
+    setCategory(e.target.value);
+  };
 
   //   const handleChange = (e) => {
   //     setCategory(e.target.value);
@@ -36,7 +42,33 @@ function ArticleEdit() {
       // console.log(res);
       setArticleTitle("");
       //setCategory("");
-      navigate(`/article/${articleId}`);
+       navigate(`/article/${articleId}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateCategory = async () => {
+    console.log(
+      `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`
+    );
+    const dataCategory = {
+      categoryId: category,
+    };
+    
+
+    try {
+      const res = await fetch(
+        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json; charset=utf-8",
+          },
+          body: JSON.stringify(dataCategory),
+        }
+      );
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +88,9 @@ function ArticleEdit() {
       return;
     }
 
+    if (category) {
+      updateCategory();
+    }
     UpdateArticle(data);
   };
 
@@ -75,6 +110,7 @@ function ArticleEdit() {
         setArticleTitle(data.title);
         setArticleContent(data.content);
         setLoading(false);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -90,31 +126,35 @@ function ArticleEdit() {
         <SubNavBar fontColor={`black-color`} />
       </header>
       <main id="main">
-        <form className="form-add-article" onSubmit={handleSubmit}>
-          <div className="container-inputs-add-article">
-            <input
-              type="text"
-              placeholder="Título de tu Artículo"
-              className="input"
-              onChange={(e) => setArticleTitle(e.target.value)}
-              value={articleTitle}
-            />
-            <p>
-              <strong>Categoría:</strong> {article.category?.nameCategory}
-            </p>
-            {/* <SelectCategories
-          handleChange={handleChange}
-          url="https://wikideas.up.railway.app/api/v1/wikideas/categories/"
-          
-        /> */}
+        <form className="form-edit-article" onSubmit={handleSubmit}>
+          <div className="container-inputs-edit-article">
+            <div className="container-label-input">
+              <label htmlFor="input-edit-article">Título</label>
+              <input
+                type="text"
+                placeholder="Título de tu Artículo"
+                className="input-add-article"
+                onChange={(e) => setArticleTitle(e.target.value)}
+                value={articleTitle}
+                id="input-edit-article"
+              />
+            </div>
+            <div className="container-label-input">
+              <label htmlFor="select">Categoría</label>
+              <SelectCategories
+                handleChange={handleChange}
+                url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+                value={category ? category : article.categoryId}
+              />
+            </div>
           </div>
           <div className="container-buttons-add-article">
+            <Link to={`/article/${articleId}`} className="btn-link">
+              Volver
+            </Link>
             <button type="submit" className="btn-button">
               Guardar
             </button>
-            {/* <Link to={"/"} className="btn-link">
-          Cancelar
-        </Link> */}
           </div>
           {loading ? (
             <Loader />
@@ -124,11 +164,12 @@ function ArticleEdit() {
               value={articleContent}
               onChange={addContent}
               modules={toolbar}
+              className="editor-article"
             />
           )}
         </form>
       </main>
-      
+
       <Footer fontColor={"footer-font-dark"} />
     </div>
   );

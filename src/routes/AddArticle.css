@@ -17,7 +17,6 @@
 .input-add-article {
   height: 2rem;
   margin: 1rem 0rem 1rem 0;
- 
 
   width: 60%;
   text-indent: 5px;
@@ -63,14 +62,14 @@
   text-decoration: none;
 }
 
-.container-label-input{
+.container-label-input {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
 }
 
-.container-label-input label{
+.container-label-input label {
   margin-right: 1rem;
   font-weight: bold;
 }
@@ -109,16 +108,13 @@
     border-radius: 10px;
     height: 2.5rem;
   }
-  .container-label-input{
+  .container-label-input {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  .container-label-input label{
+  .container-label-input label {
     align-self: flex-start;
-    
   }
-
-
 }

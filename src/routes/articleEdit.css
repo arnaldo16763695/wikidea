@@ -1,0 +1,47 @@
+.message {
+    background-color: rgba(255, 2, 2, 0.5);
+    padding: 0.5rem;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .form-edit-article {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 80%;
+    /* margin: auto; */
+    margin: 2rem auto auto auto;
+    /* border: thick solid red; */
+  }
+  
+  .container-inputs-edit-article {
+    display: flex;
+    justify-content: space-around;
+    /* border: thick solid blue; */
+  }
+  
+  .btn-delete:hover {
+    border: 2px solid red;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container-inputs-edit-article {
+      flex-direction: column;
+      width: 100%;
+    }
+    .container-inputs-edit-article p {
+      margin-bottom: 0.5rem;
+    }
+    .form-view-article {
+      margin: auto;
+      width: 100%;
+    }
+  
+    .input {
+      width: 30%;
+    }
+  }
+  

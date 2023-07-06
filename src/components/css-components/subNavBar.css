@@ -1,7 +1,8 @@
 .sub_nav_items {
   display: flex;
   margin-left: 3rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   /* border: thick solid yellow; */
   width: 80%;
 }
@@ -15,8 +16,6 @@
   text-decoration: none;
   border: 2px solid transparent;
   transition: 0.3s ease-in-out;
-  opacity: 0.8;
-
 }
 
 .black-color {
@@ -38,7 +37,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .sub_nav_items > a {  
-   display: none;
+  .sub_nav_items {
+display: none;
   }
 }
