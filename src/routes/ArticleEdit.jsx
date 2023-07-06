@@ -10,6 +10,7 @@ import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
 import "./articleEdit.css";
 import { SelectCategories } from "../components/SelectCategories";
+import FooterMobile from "../components/FooterMobile";
 
 function ArticleEdit() {
   const [loading, setLoading] = useState(false);
@@ -124,6 +125,8 @@ function ArticleEdit() {
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
+        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Editar Artículo</h2>
+
       </header>
       <main id="main">
         <form className="form-edit-article" onSubmit={handleSubmit}>
@@ -171,6 +174,8 @@ function ArticleEdit() {
       </main>
 
       <Footer fontColor={"footer-font-dark"} />
+      <FooterMobile svgLeft={'svgHome'} svgRight={'svgSave'} linkLeft={'/'}  isButton={true} handleSubmit={handleSubmit}/>
+      
     </div>
   );
 }

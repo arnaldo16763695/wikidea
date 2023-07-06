@@ -35,13 +35,18 @@
     .container-inputs-edit-article p {
       margin-bottom: 0.5rem;
     }
-    .form-view-article {
+    .form-edit-article {
       margin: auto;
       width: 100%;
+      border: thick solid pink;
     }
   
-    .input {
-      width: 30%;
+    .input-edit-article{
+        width: 100%;
+        margin: 0.5rem 0rem 1rem 0;
+        text-indent: 5px;
+        border-radius: 10px;
+        height: 2.5rem;
     }
   }
   
