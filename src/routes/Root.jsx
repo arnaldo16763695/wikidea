@@ -19,7 +19,7 @@ const root = () => {
           <Home/>
         </main>
         <Footer fontColor={'footer-font-light'}/>
-        <FooterMobile svgLeft={'svgHome'} svgRight={'svgAdd'} linkLeft={'/'} linkRight={'/add-article'}/>
+        <FooterMobile svgLeft={''} svgRight={'svgAdd'} linkLeft={'/'} linkRight={'/add-article'}/>
       </div>
     </div>
   );
