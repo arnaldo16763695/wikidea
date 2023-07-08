@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import "./css-components/cardCategory.css"; 
+import "./css-components/cardCategory.css";  
 const CardCategory = (props) => {
   return (
     <div className="card">

@@ -1,13 +1,11 @@
-
-
-.category--image { 
+.category--image {
   border-radius: 10px;
   width: 100%;
   height: 7em;
   object-fit: cover;
 }
 
-.title-card{
+.title-card {
   padding: 1rem;
 }
 
@@ -20,7 +18,6 @@
   text-align: center;
   font-family: arial;
   background-color: rgba(255, 255, 255, 0.7);
-  
 }
 
 .card a {
@@ -28,19 +25,12 @@
   color: black;
 }
 
-
-/* .card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-} */
-
 .card button:hover {
   opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .category--image {
+    height: 10em;
+  }
 }
