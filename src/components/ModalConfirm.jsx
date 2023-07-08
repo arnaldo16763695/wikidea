@@ -1,9 +1,12 @@
 import React from "react";
 import "../components/css-components/modalConfirm.css";
 const ModalConfirm = ({ setOpenModal, action }) => {
+  const closeModal = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <div className="modalBackground">
-      <div className="modalContainer">
+    <div className="modalBackground" onClick={() => setOpenModal(false)}>
+      <div className="modalContainer" onClick={closeModal}>
         <div className="titleCloseBtn">
           <button
             onClick={() => {
@@ -18,7 +21,6 @@ const ModalConfirm = ({ setOpenModal, action }) => {
         </div>
         <div className="body">
           <p>Si eliminas este artículo no podrás recuperarlo</p>
-        
         </div>
         <div className="footer">
           <button
@@ -27,7 +29,7 @@ const ModalConfirm = ({ setOpenModal, action }) => {
             }}
             id="cancelBtn"
           >
-           Cancelar
+            Cancelar
           </button>
           <button onClick={action}>Sí, eliminar</button>
         </div>
