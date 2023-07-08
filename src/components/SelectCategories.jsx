@@ -24,6 +24,7 @@ export const SelectCategories = ({ handleChange, url, value }) => {
       className="select_categories"
       onChange={handleChange}
       value={value}
+      required
     >
       <option value="" >
          Elija una Categoría

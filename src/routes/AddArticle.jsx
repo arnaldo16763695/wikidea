@@ -1,6 +1,6 @@
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./AddArticle.css";
 import { Link, useNavigate } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
@@ -38,7 +38,7 @@ const AddArticle = () => {
       console.log(error);
     }
   };
-
+  const text = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(category)
@@ -49,8 +49,8 @@ const AddArticle = () => {
 
     //get text of edito to validate form
 
-    if (!data.title || !category) {
-      alert("datos incompletos");
+    if (text.current.unprivilegedEditor.getText() === "\n") {
+      alert("Debes escribir contenido en tu artículo");
       return;
     }
 
@@ -66,29 +66,34 @@ const AddArticle = () => {
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
-        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Crear Artículo</h2>
+        <h2
+          style={{ textAlign: "center", fontWeight: "bold", marginTop: "1rem" }}
+        >
+          Crear Artículo
+        </h2>
       </header>
       <main id="main">
         <form className="form-add-article" onSubmit={handleSubmit}>
           <div className="container-inputs-add-article">
-           <div  className="container-label-input">
-             <label htmlFor="input-add-article">Título</label>
-             <input
-               type="text"
-               placeholder="Título de tu Artículo"
-               className="input-add-article"
-               onChange={(e) => setArticleTitle(e.target.value)}
-               value={articleTitle}
-               id="input-add-article"
-             />
-           </div>
-           <div className="container-label-input">
-             <label htmlFor="select">Categoría</label>
-             <SelectCategories
-               handleChange={handleChange}
-               url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
-             />
-           </div>
+            <div className="container-label-input">
+              <label htmlFor="input-add-article">Título</label>
+              <input
+                type="text"
+                placeholder="Título de tu Artículo"
+                className="input-add-article"
+                onChange={(e) => setArticleTitle(e.target.value)}
+                value={articleTitle}
+                id="input-add-article"
+                required
+              />
+            </div>
+            <div className="container-label-input">
+              <label htmlFor="select">Categoría</label>
+              <SelectCategories
+                handleChange={handleChange}
+                url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+              />
+            </div>
           </div>
 
           <ReactQuill
@@ -98,6 +103,7 @@ const AddArticle = () => {
             modules={toolbar}
             placeholder="Escribe aquí el contenido de tu artículo."
             className="editor-article"
+            ref={text}
           />
           <div className="container-buttons-add-article">
             <button type="submit" className="btn-button">
@@ -110,8 +116,14 @@ const AddArticle = () => {
         </form>
       </main>
       <Footer fontColor={"footer-font-dark"} />
-      <FooterMobile svgLeft={'svgHome'} svgRight={'svgSave'} linkLeft={'/'} linkRight={'/add-article'} isButton={true} handleSubmit={handleSubmit}/>
-
+      <FooterMobile
+        svgLeft={"svgHome"}
+        svgRight={"svgSave"}
+        linkLeft={"/"}
+        linkRight={"/add-article"}
+        isButton={true}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 };

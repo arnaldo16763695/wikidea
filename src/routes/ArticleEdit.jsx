@@ -84,10 +84,7 @@ function ArticleEdit() {
       content: articleContent,
     };
 
-    if (!data.title) {
-      alert("datos incompletos");
-      return;
-    }
+   
 
     if (category) {
       updateCategory();
@@ -140,6 +137,7 @@ function ArticleEdit() {
                 onChange={(e) => setArticleTitle(e.target.value)}
                 value={articleTitle}
                 id="input-edit-article"
+                required
               />
             </div>
             <div className="container-label-input">
