@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
 import FooterMobile from "../components/FooterMobile";
+import ModalConfirm from "../components/ModalConfirm";
 
 export default function Article() {
   const [message, setMessage] = useState(false);
@@ -16,6 +17,7 @@ export default function Article() {
   const [article, setArticle] = useState({});
   const [articleContent, setArticleContent] = useState("");
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const getAticle = async () => {
       try {
@@ -36,35 +38,45 @@ export default function Article() {
   }, [articleId]);
 
   const deleteArticle = async () => {
-    if (confirm(`¿Estas seguro de eliminar el artículo ${article.title}?`)) {
-      try {
-        const res = await fetch(
-          `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
-          {
-            method: "DELETE",
-          }
-        );
-        console.log(res);
+    setOpenModal(false);
+    try {
+      const res = await fetch(
+        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      console.log(res);
 
-        //setCategory("");
-        setMessage(true);
-        setTimeout(() => {
-          setMessage(false);
-          navigate(`/list-articles`);
-        }, 2000);
-      } catch (error) {
-        console.log(error);
-      }
+      //setCategory("");
+      setMessage(true);
+      setTimeout(() => {
+        setMessage(false);
+        navigate(`/list-articles`);
+      }, 2000);
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  const showModalConfirm = () => {
+    setOpenModal(true);
   };
 
   return (
     <div className="content-container">
+      {openModal && (
+        <ModalConfirm setOpenModal={setOpenModal} action={deleteArticle} />
+      )}
+
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <SubNavBar fontColor={`black-color`} />
-        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Contenido del Artículo</h2>
-
+        <h2
+          style={{ textAlign: "center", fontWeight: "bold", marginTop: "1rem" }}
+        >
+          Contenido del Artículo
+        </h2>
       </header>
       <main id="main">
         <form className="form-view-article">
@@ -81,7 +93,10 @@ export default function Article() {
             </div>
           </div>
           <div className="container-buttons-add-article">
-            <button onClick={deleteArticle} className="btn-delete btn-link ">
+            <button
+              onClick={() => setOpenModal(true)}
+              className="btn-delete btn-link "
+            >
               Eliminar
             </button>
             <Link to={`/edit-article/${article.id}`} className="btn-link">
@@ -99,8 +114,13 @@ export default function Article() {
         </form>
       </main>
       <Footer fontColor={"footer-font-dark"} />
-      <FooterMobile svgLeft={'svgHome'} svgRight={'svgEdit'} linkLeft={'/'} linkRight={`/edit-article/${articleId}`} isButton={false} />
-      
+      <FooterMobile
+        svgLeft={"svgHome"}
+        svgRight={"svgEdit"}
+        linkLeft={"/"}
+        linkRight={`/edit-article/${articleId}`}
+        isButton={false}
+      />
     </div>
   );
 }
