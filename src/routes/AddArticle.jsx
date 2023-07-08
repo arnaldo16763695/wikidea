@@ -14,6 +14,9 @@ const AddArticle = () => {
   const [articleTitle, setArticleTitle] = useState("");
   const [category, setCategory] = useState("");
   const [articleContent, setArticleContent] = useState("");
+  const [emptyTitle, setEmptyTitle] = useState(false);
+  const [emptyCategory, setEmptyCategory] = useState(false);
+  const [emptyContent, setEmptyContent] = useState(false);
   const handleChange = (e) => {
     setCategory(e.target.value);
   };
@@ -42,19 +45,31 @@ const AddArticle = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(category)
-    const data = {
-      title: articleTitle,
-      content: articleContent,
-    };
+    if (!articleTitle.trim()) {
+      setEmptyTitle(true);
+      setTimeout(() => {
+        setEmptyTitle(false);
+      }, 3000);
+    } else if (!category.trim()) {
+      setEmptyCategory(true);
+      setTimeout(() => {
+        setEmptyCategory(false);
+      }, 3000);
+    } else if (text.current.unprivilegedEditor.getText() === "\n") {
+      setEmptyContent(true);
+      setTimeout(() => {
+        setEmptyContent(false);
+      }, 3000);
+    } else {
+      const data = {
+        title: articleTitle,
+        content: articleContent,
+      };
 
-    //get text of edito to validate form
+      //get text of edito to validate form
 
-    if (text.current.unprivilegedEditor.getText() === "\n") {
-      alert("Debes escribir contenido en tu artículo");
-      return;
+      saveArticle(data);
     }
-
-    saveArticle(data);
   };
 
   const addContent = (value) => {
@@ -76,6 +91,9 @@ const AddArticle = () => {
         <form className="form-add-article" onSubmit={handleSubmit}>
           <div className="container-inputs-add-article">
             <div className="container-label-input">
+              {emptyTitle && (
+                <p style={{ color: "red" }}>El título no puede estar vacío</p>
+              )}
               <label htmlFor="input-add-article">Título</label>
               <input
                 type="text"
@@ -88,6 +106,11 @@ const AddArticle = () => {
               />
             </div>
             <div className="container-label-input">
+              {emptyCategory && (
+                <p style={{ color: "red" }}>
+                  La categoría no puede estar vacía
+                </p>
+              )}
               <label htmlFor="select">Categoría</label>
               <SelectCategories
                 handleChange={handleChange}
@@ -95,7 +118,11 @@ const AddArticle = () => {
               />
             </div>
           </div>
-
+          {emptyContent && (
+            <p style={{ color: "red" }}>
+              El contenido del articulo no debe estar vacío
+            </p>
+          )}
           <ReactQuill
             theme="snow"
             value={articleContent}

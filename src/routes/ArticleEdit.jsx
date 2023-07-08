@@ -84,7 +84,10 @@ function ArticleEdit() {
       content: articleContent,
     };
 
-   
+    if (!data.title) {
+      alert("datos incompletos");
+      return;
+    }
 
     if (category) {
       updateCategory();
