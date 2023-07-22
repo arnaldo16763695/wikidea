@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./articles.css";
 import Pagination from "../components/Pagination";
 import { Loader } from "../components/Loader";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
+import "./articles.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);

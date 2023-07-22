@@ -4,10 +4,10 @@ import { helpHttp } from "../helpers/helpHttp";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
-import "./categories.css";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
+import "./categories.css";
 
 export default function Categories() {
   const url =
@@ -59,7 +59,7 @@ export default function Categories() {
               .slice((page - 1) * byPage, (page - 1) * byPage + byPage)
               .map((category) => (
                 <Link
-                  className="card-article"
+                  className="card-category"
                   style={{ color: "#000" }}
                   to={`/articles-by-category/${category.id}`}
                   key={category.id}

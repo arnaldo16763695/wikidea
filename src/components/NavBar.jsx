@@ -49,27 +49,28 @@ function NavBar(props) {
               </clipPath>
             </defs>
           </svg>
+          <p className="name-logo">COLABRY</p>
         </Link>
       </div>
-      <Search /> 
-      <Link className="link-add-content" to="/add-article">
-        Crear artículo
-      </Link>
+      
+    
       <div className={`nav_items ${isOpen && "open"}`}>
         <Link onClick={() => setIsOpen(!isOpen)} to="/">
           Inicio
         </Link>{" "}
-        <Link onClick={() => setIsOpen(!isOpen)} to="/add-article">
-          Crear artículo
-        </Link>{" "}
         <Link onClick={() => setIsOpen(!isOpen)} to="/list-categories">
           {" "}
-          Todas las categorías
+          Categorías
         </Link>
         <Link onClick={() => setIsOpen(!isOpen)} to="/list-articles">
           {" "}
-          Todos los articulos
+          Articulos
         </Link>
+        <Link onClick={() => setIsOpen(!isOpen)} to="/add-article">
+          Crear artículo
+        </Link>{" "}
+       
+      
       </div>
     </div>
   );

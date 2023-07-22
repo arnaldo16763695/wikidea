@@ -4,9 +4,9 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  
   
   /* background-color: var(--second-color) */
   /* background-image: url(../../../public/images/fondo.jpg); */

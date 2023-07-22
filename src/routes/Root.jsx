@@ -13,7 +13,7 @@ const root = () => {
       <div className="shadow-home">
         <header className="header">
           <NavBar backgroundColor={`background-trans`} />
-          <SubNavBar fontColor={`white-color`}/>
+          {/* <SubNavBar fontColor={`white-color`}/> */}
         </header>
         <main id="main">
           <Home/>
