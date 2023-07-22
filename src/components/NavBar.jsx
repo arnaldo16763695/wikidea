@@ -64,7 +64,7 @@ function NavBar(props) {
         </Link>
         <Link onClick={() => setIsOpen(!isOpen)} to="/list-articles">
           {" "}
-          Articulos
+          Artículos
         </Link>
         <Link onClick={() => setIsOpen(!isOpen)} to="/add-article">
           Crear artículo

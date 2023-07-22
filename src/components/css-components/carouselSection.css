@@ -1,0 +1,14 @@
+.carouselSection {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 40rem;
+  background-color: #edeff2;
+}
+
+.carouselSection h2 {
+  padding-bottom: 3rem;
+  text-align: center;
+}

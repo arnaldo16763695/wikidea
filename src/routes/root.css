@@ -1,4 +1,4 @@
-.home-container {
+.home-video {
   background-color: rgba(0, 0, 0, 1);
   min-height: 100vh;
   background-image: url("/images/fondo_mountains.jpg");
@@ -42,8 +42,10 @@ main {
   box-shadow: 5px 5px 12.5px grey;
 }
 
+
+
 @media screen and (min-width: 1024px) {
-  .home-container {
+  .home-video {
     display: flex;
     flex-direction: column;
 

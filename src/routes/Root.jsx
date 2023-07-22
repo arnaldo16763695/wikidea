@@ -1,26 +1,34 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import "./root.css";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
 import Home from "../components/Home";
 import FooterMobile from "../components/FooterMobile";
+import AvailableCategory from "../components/AvailableCategory";
+import "./root.css";
+import { MyCarousel } from "../components/MyCarousel";
+import CarouselSection from "../components/CarouselSection";
 
 const root = () => {
   return (
-    <div className="home-container">
-      <div className="shadow-home">
-        <header className="header">
-          <NavBar backgroundColor={`background-trans`} />
-          {/* <SubNavBar fontColor={`white-color`}/> */}
-        </header>
-        <main id="main">
-          <Home/>
-        </main>
-        <Footer fontColor={'footer-font-light'}/>
-        <FooterMobile svgLeft={''} svgRight={'svgAdd'} linkLeft={'/'} linkRight={'/add-article'}/>
+    <div className="container-root">
+      <div className="home-video">
+        <div className="shadow-home">
+          <header className="header">
+            <NavBar backgroundColor={`background-trans`} />
+            {/* <SubNavBar fontColor={`white-color`}/> */}
+          </header>
+          <Home />
+        </div>
       </div>
+      <AvailableCategory/>
+      <CarouselSection/>
+      <Footer fontColor={"footer-font-light"} />
+      <FooterMobile
+        svgLeft={""}
+        svgRight={"svgAdd"}
+        linkLeft={"/"}
+        linkRight={"/add-article"}
+      />
     </div>
   );
 };
