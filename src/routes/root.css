@@ -1,10 +1,18 @@
 .home-video {
-  background-color: rgba(0, 0, 0, 1);
   min-height: 100vh;
-  background-image: url("/images/fondo_mountains.jpg");
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
+  width: 100%;
+  /* background-image: url("/images/fondo_mountains.jpg"); */
+  position: relative;
 }
+#myVideo {
+ position: absolute;
+ bottom: 0;
+ min-height: 100%;
+ width: 100%;
+ /* border: thick solid green; */
+ z-index: -1;
+}
+
 .content-container {
   display: flex;
   flex-direction: column;
@@ -53,6 +61,6 @@ main {
   }
   .header {
     width: 100%;
-    background-color: transparent;
+    background-color: transparent; 
   }
 }

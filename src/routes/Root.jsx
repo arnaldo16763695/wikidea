@@ -11,7 +11,11 @@ import CarouselSection from "../components/CarouselSection";
 const root = () => {
   return (
     <div className="container-root">
+    
       <div className="home-video">
+        <video autoPlay muted loop id="myVideo">
+          <source src="/images/home-video.mp4" type="video/mp4" />
+        </video>
         <div className="shadow-home">
           <header className="header">
             <NavBar backgroundColor={`background-trans`} />
@@ -20,8 +24,8 @@ const root = () => {
           <Home />
         </div>
       </div>
-      <AvailableCategory/>
-      <CarouselSection/>
+      <AvailableCategory />
+      <CarouselSection />
       <Footer fontColor={"footer-font-light"} />
       <FooterMobile
         svgLeft={""}
