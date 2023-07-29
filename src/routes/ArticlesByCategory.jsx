@@ -10,8 +10,8 @@ import SubNavBar from "../components/SubNavBar";
 
 const ArticlesByCategory = () => {
   const { idCategory } = useParams();
-  const url = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${idCategory}/articles`;
-  const urlCategory = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${idCategory}/articles`;
+  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${idCategory}/articles`;
+  const urlCategory = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${idCategory}/articles`;
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

@@ -8,7 +8,7 @@ import CardCarousel from "./CardCarousel";
 
 export const MyCarousel = () => {
   const url =
-    "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
+    "https://wikideas-app.devcodes.net/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

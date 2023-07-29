@@ -33,7 +33,7 @@ function Articles() {
   };
   useEffect(() => {
     getArticles(
-      `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/`
+      `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/`
     );
   }, []);
 

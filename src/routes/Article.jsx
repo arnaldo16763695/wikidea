@@ -23,7 +23,7 @@ export default function Article() {
       try {
         setLoading(true);
         const res = await fetch(
-            `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`
+            `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
           ),
           data = await res.json();
         setArticle(data);
@@ -41,7 +41,7 @@ export default function Article() {
     setOpenModal(false);
     try {
       const res = await fetch(
-        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
         {
           method: "DELETE",
         }

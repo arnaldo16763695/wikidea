@@ -11,7 +11,7 @@ import "./categories.css";
 
 export default function Categories() {
   const url =
-    "https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/";
+    "https://wikideas-app.devcodes.net/api/v1/wikideas/categories/";
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

@@ -31,7 +31,7 @@ function ArticleEdit() {
   const UpdateArticle = async (data) => {
     try {
       const res = await fetch(
-        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
         {
           method: "PATCH",
           headers: {
@@ -51,7 +51,7 @@ function ArticleEdit() {
 
   const updateCategory = async () => {
     console.log(
-      `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`
+      `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
     );
     const dataCategory = {
       categoryId: category,
@@ -60,7 +60,7 @@ function ArticleEdit() {
 
     try {
       const res = await fetch(
-        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`,
+        `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`,
         {
           method: "PATCH",
           headers: {
@@ -104,7 +104,7 @@ function ArticleEdit() {
       try {
         setLoading(true);
         const res = await fetch(
-            `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/${articleId}`
+            `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
           ),
           data = await res.json();
         setArticle(data);
@@ -147,7 +147,7 @@ function ArticleEdit() {
               <label htmlFor="select">Categoría</label>
               <SelectCategories
                 handleChange={handleChange}
-                url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+                url="https://wikideas-app.devcodes.net/api/v1/wikideas/categories/"
                 value={category ? category : article.categoryId}
               />
             </div>

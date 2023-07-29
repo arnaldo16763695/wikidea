@@ -7,7 +7,7 @@ import { urlImages } from "../helpers/dataCarousel";
 const AvailableCategory = () => {
   const [categories, setCategories] = useState([]);
   const api = helpHttp();
-  const url = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/`;
+  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/`;
   const getCategories = (urlCategories) => {
     api.get(urlCategories).then((res) => {
       if (res) {

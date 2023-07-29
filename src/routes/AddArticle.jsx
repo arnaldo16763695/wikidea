@@ -24,7 +24,7 @@ const AddArticle = () => {
   const saveArticle = async (data) => {
     try {
       const res = await fetch(
-        `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/${category}/articles`,
+        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${category}/articles`,
         {
           method: "POST",
           headers: {
@@ -114,7 +114,7 @@ const AddArticle = () => {
               <label htmlFor="select">Categoría</label>
               <SelectCategories
                 handleChange={handleChange}
-                url="https://wikideas-api-klaa.onrender.com/api/v1/wikideas/categories/"
+                url="https://wikideas-app.devcodes.net/api/v1/wikideas/categories/"
               />
             </div>
           </div>

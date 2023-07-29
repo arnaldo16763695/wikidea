@@ -6,7 +6,7 @@ const SearchMain = () => {
   const [toSearch, setToSearch] = useState([]);
   const [articlesList, setArticlesList] = useState([]);
   const [search, setSearch] = useState("");
-  const url = `https://wikideas-api-klaa.onrender.com/api/v1/wikideas/articles/`;
+  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/`;
 
   const getArticles = async (url) => {
     try {
