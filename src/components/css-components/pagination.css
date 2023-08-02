@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--second-color);
+  background-color: gray;
   width: 2rem;
   border-radius: 5px;
   cursor: pointer;

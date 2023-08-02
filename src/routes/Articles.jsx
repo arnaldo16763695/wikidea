@@ -6,7 +6,6 @@ import Pagination from "../components/Pagination";
 import { Loader } from "../components/Loader";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import "./articles.css";
 
 function Articles() {
@@ -42,7 +41,6 @@ function Articles() {
       <header className="header">
       
         <NavBar backgroundColor={`background-dark`} />
-        <SubNavBar fontColor={`black-color`} />
       </header>
       <main id="main">
         {" "}

@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { SelectCategories } from "../components/SelectCategories";
 import { toolbar } from "../toolbar";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
 import FooterMobile from "../components/FooterMobile";
 const AddArticle = () => {
@@ -77,10 +76,9 @@ const AddArticle = () => {
   };
 
   return (
-    <div className="content-container">
+    <div className="content-container"> 
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
-        <SubNavBar fontColor={`black-color`} />
         <h2
           style={{ textAlign: "center", fontWeight: "bold", marginTop: "1rem" }}
         >

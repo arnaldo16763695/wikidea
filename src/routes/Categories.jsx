@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import "./categories.css";
 
 export default function Categories() {
@@ -41,7 +40,6 @@ export default function Categories() {
     <div className="content-container">
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
-        <SubNavBar fontColor={`black-color`} />
       </header>
       <main id="main">
         {" "}
