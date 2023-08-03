@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./css-components/navBar.css";
 import { Link } from "react-router-dom";
-import Search from "./Search";
 
 function NavBar(props) {
   const [isOpen, setIsOpen] = useState(false);

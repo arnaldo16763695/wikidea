@@ -14,11 +14,11 @@
 }
 
 .content-container {
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   background-color: #223ecd10;
   background-color: #f1f1f1;
-  /* background-image: linear-gradient(rgb(106, 106, 124), rgb(231, 242, 246)); */
   min-height: 100vh;
 }
 .shadow-home {
