@@ -6,7 +6,6 @@ import ReactQuill from "react-quill";
 import { toolbar } from "../toolbar";
 import { Loader } from "../components/Loader";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import Footer from "../components/Footer";
 import "./articleEdit.css";
 import { SelectCategories } from "../components/SelectCategories";
@@ -124,7 +123,6 @@ function ArticleEdit() {
     <div className="content-container">
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
-        <SubNavBar fontColor={`black-color`} />
         <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Editar Artículo</h2>
 
       </header>

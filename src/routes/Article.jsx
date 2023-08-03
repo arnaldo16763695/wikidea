@@ -6,7 +6,6 @@ import { Loader } from "../components/Loader";
 import "./article.css";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import SubNavBar from "../components/SubNavBar";
 import FooterMobile from "../components/FooterMobile";
 import ModalConfirm from "../components/ModalConfirm";
 
@@ -71,7 +70,6 @@ export default function Article() {
 
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
-        <SubNavBar fontColor={`black-color`} />
         <h2
           style={{ textAlign: "center", fontWeight: "bold", marginTop: "1rem" }}
         >

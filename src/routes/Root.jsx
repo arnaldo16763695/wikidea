@@ -9,6 +9,8 @@ import { MyCarousel } from "../components/MyCarousel";
 import CarouselSection from "../components/CarouselSection";
 
 const root = () => {
+  const fecha = new Date()
+  console.log(Date.parse('2023-08-02T20:23:00.174Z'))
   return (
     <div className="container-root">
     
@@ -26,7 +28,8 @@ const root = () => {
       </div>
       <AvailableCategory />
       <CarouselSection />
-      <Footer fontColor={"footer-font-light"} />
+      
+      <Footer fontColor={"footer-font-dark"} />
       <FooterMobile
         svgLeft={""}
         svgRight={"svgAdd"}
