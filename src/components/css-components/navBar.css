@@ -121,6 +121,8 @@
   }
   .background-trans {
     background-color: transparent;
+    transition: 0.9s;
+
   }
   .background-dark {
     background-color: rgba(0, 0, 0, 0.8);
