@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./css-components/availableCategory.css";
 import { helpHttp } from "../helpers/helpHttp";
 import CardCategory from "./CardCategory";
-import { urlImages } from "../helpers/dataCarousel";
+import { urlImages } from "../helpers/dataCarousel"; 
 
 const AvailableCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -40,7 +40,7 @@ const AvailableCategory = () => {
               <CardCategory
                 name={category.nameCategory}
                 url={category.url}
-                categoryId={category.id}
+                categoryId={category.id} 
               />
             </div>
           ))} 

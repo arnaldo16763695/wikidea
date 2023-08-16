@@ -24,7 +24,7 @@ const root = () => {
   }, []);
 
   return (
-    <div className="container-root">
+    <div className="container-root"> 
       <div className="home-video">
         <video autoPlay muted loop id="myVideo">
           <source src="/images/home-video.mp4" type="video/mp4" />

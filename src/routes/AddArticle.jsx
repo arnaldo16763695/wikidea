@@ -76,7 +76,7 @@ const AddArticle = () => {
   };
 
   return (
-    <div className="content-container"> 
+    <div className="content-container">  
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
         <h2

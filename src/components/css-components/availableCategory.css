@@ -32,3 +32,18 @@
     
     /* border: thin solid green; */
 }
+
+@media screen and (max-width: 768px) {
+    .card-category-item-content{
+        grid-template-columns: repeat(2, 1fr) ;
+       
+        /* border: thin solid red; */
+        
+    } 
+
+    .title-available-category-content{
+        margin: auto;
+        padding: 1rem;
+        text-align: center;
+    }
+} 

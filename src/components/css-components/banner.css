@@ -28,17 +28,13 @@
 
 @media screen and (max-width: 768px) {
   .container_banner {
-    flex-grow: 1;
+    padding: 0 0.3rem;
+    margin-top: 8rem;
     display: flex;
-    flex-direction: column;
-    align-self: center;
     justify-content: center;
-    align-items: center;
-    color: white;
     width: 100%;
+    order: 1;
   }
 
-  .text_banner {
-    display: none;
-  }
+ 
 }

@@ -5,12 +5,12 @@
   position: relative;
 }
 #myVideo {
- position: absolute;
- bottom: 0;
- min-height: 100%;
- width: 100%;
- /* border: thick solid green; */
- z-index: -1;
+  position: absolute;
+  bottom: 0;
+  min-height: 100%;
+  width: 100%;
+  /* border: thick solid green; */
+  z-index: -1;
 }
 
 .content-container {
@@ -37,7 +37,6 @@
 .header {
   width: 100%;
   background-color: transparent;
-  /* border: thick solid yellow; */
 }
 
 main {
@@ -45,22 +44,20 @@ main {
   flex-grow: 1;
 }
 
-.editor-article{
+.editor-article {
   background-color: #ffffff;
   box-shadow: 5px 5px 12.5px grey;
 }
 
-
-
-@media screen and (min-width: 1024px) {
-  .home-video {
-    display: flex;
-    flex-direction: column;
-
-    /* border: thick solid rebeccapurple; */
+@media screen and (max-width: 768px) {
+  #myVideo{
+    display: none;
   }
-  .header {
-    width: 100%;
-    background-color: transparent; 
+  .content-container {
+    padding-top: 0rem;
+  }
+
+  .shadow-home{
+  background-image: url('/images/fondo_mountains.jpg');
   }
 }
