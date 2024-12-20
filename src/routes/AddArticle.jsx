@@ -8,6 +8,7 @@ import { toolbar } from "../toolbar";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import FooterMobile from "../components/FooterMobile";
+import { BASE_URL } from "../helpers/base_url";
 const AddArticle = () => {
   const navigate = useNavigate();
   const [articleTitle, setArticleTitle] = useState("");
@@ -19,11 +20,11 @@ const AddArticle = () => {
   const handleChange = (e) => {
     setCategory(e.target.value);
   };
-
+  
   const saveArticle = async (data) => {
     try {
       const res = await fetch(
-        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${category}/articles`,
+        `${BASE_URL}/api/articles`,
         {
           method: "POST",
           headers: {
@@ -33,9 +34,10 @@ const AddArticle = () => {
         }
       );
       // console.log(res); 08:00.0 08:00.1   10de:1d01  10de:0fb8   rev a1
+      const myData = await res.json()
       setArticleTitle("");
       setCategory("");
-      navigate("/list-articles");
+      navigate(`/article/${myData.id}`);
     } catch (error) {
       console.log(error);
     }
@@ -62,7 +64,9 @@ const AddArticle = () => {
     } else {
       const data = {
         title: articleTitle,
-        content: articleContent,
+        contentText: articleContent,
+        contentHtml: articleContent,
+        categoriesArticleId: category,
       };
 
       //get text of edito to validate form
@@ -112,7 +116,7 @@ const AddArticle = () => {
               <label htmlFor="select">Categoría</label>
               <SelectCategories
                 handleChange={handleChange}
-                url="https://wikideas-app.devcodes.net/api/v1/wikideas/categories/"
+                url={`${BASE_URL}/api/categories`}
               />
             </div>
           </div>

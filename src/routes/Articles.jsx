@@ -7,6 +7,7 @@ import { Loader } from "../components/Loader";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import "./articles.css";
+import { BASE_URL } from "../helpers/base_url";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
@@ -32,7 +33,7 @@ function Articles() {
   };
   useEffect(() => {
     getArticles(
-      `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/`
+      `${BASE_URL}/api/articles`
     );
   }, []);
 

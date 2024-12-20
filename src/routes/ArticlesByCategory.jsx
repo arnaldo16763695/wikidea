@@ -7,12 +7,14 @@ import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import SubNavBar from "../components/SubNavBar";
+import { BASE_URL } from "../helpers/base_url";
 
 const ArticlesByCategory = () => {
   const { idCategory } = useParams();
-  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${idCategory}/articles`;
-  const urlCategory = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${idCategory}/articles`;
+  const urlCategory = `${BASE_URL}/api/articles/categories/${idCategory}`;
+  const urlCategory2 = `${BASE_URL}/api/categories/${idCategory}`;
   const [articles, setArticles] = useState([]);
+  const [category, setCategory] = useState([])
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -22,22 +24,21 @@ const ArticlesByCategory = () => {
   let api = helpHttp();
 
   useEffect(() => {
-    setLoading(true);
-    api.get(url).then((res) => {
-      // console.log(res);
+    api.get(urlCategory2).then((res) => {
+      console.log('arnaldo', res);
       if (!res.err) {
-        setArticles(res);
+        setCategory(res);
         setError(null);
       } else {
-        setArticles(null);
+        setCategory(null);
         setError(res);
       }
 
       setLoading(false);
     });
-
+    setLoading(true);
     api.get(urlCategory).then((res) => {
-      // console.log(res);
+      //  console.log(res);
       if (!res.err) {
         setArticles(res);
         setError(null);
@@ -59,7 +60,7 @@ const ArticlesByCategory = () => {
       <main id="main">
         {" "}
         <div className="list-articles">
-          <h1>Articulos de la Categoría </h1>
+          <h1>Articulos de la Categoría: {category.name} </h1>
           {loading && <Loader />}
           {error && (
             <Message
@@ -78,13 +79,8 @@ const ArticlesByCategory = () => {
                   key={article.id}
                 >
                   <p>
-                    <strong>Título:</strong> {article.title}
-                  </p>
-
-                  <p>
-                    <strong>Categoría: </strong>
-                    {article.category?.nameCategory}
-                  </p>
+                    {article.title}
+                  </p>                 
                 </Link>
               ))}
           <Pagination page={page} setPage={setPage} max={max} />

@@ -7,10 +7,11 @@ import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import "./categories.css";
+import { BASE_URL } from "../helpers/base_url";
 
 export default function Categories() {
-  const url =
-    "https://wikideas-app.devcodes.net/api/v1/wikideas/categories/";
+  const url = `${BASE_URL}/api/categories`
+    
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -63,7 +64,7 @@ export default function Categories() {
                   key={category.id}
                 >
                   <p>
-                    <strong>{category.nameCategory}</strong>
+                    <strong>{category.name}</strong>
                   </p>
                 </Link>
               ))}

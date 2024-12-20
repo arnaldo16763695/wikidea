@@ -3,11 +3,12 @@ import "./css-components/availableCategory.css";
 import { helpHttp } from "../helpers/helpHttp";
 import CardCategory from "./CardCategory";
 import { urlImages } from "../helpers/dataCarousel"; 
+import { BASE_URL } from "../helpers/base_url";
 
 const AvailableCategory = () => {
   const [categories, setCategories] = useState([]);
   const api = helpHttp();
-  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/`;
+  const url = `${BASE_URL}/api/categories`;
   const getCategories = (urlCategories) => {
     api.get(urlCategories).then((res) => {
       if (res) {
@@ -24,7 +25,7 @@ const AvailableCategory = () => {
     urlImages?.forEach((el2) => {
       if (el.id===el2.id) {
         el.url = el2.url
-      }
+      }      
     });
   });
 
@@ -38,7 +39,7 @@ const AvailableCategory = () => {
           categories.map((category) => (
             <div className="available-category-card" key={category.id}>
               <CardCategory
-                name={category.nameCategory}
+                name={category.name}
                 url={category.url}
                 categoryId={category.id} 
               />

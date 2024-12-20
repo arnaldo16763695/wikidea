@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import FooterMobile from "../components/FooterMobile";
 import ModalConfirm from "../components/ModalConfirm";
+import { BASE_URL } from "../helpers/base_url";
 
 export default function Article() {
   const [message, setMessage] = useState(false);
@@ -22,25 +23,25 @@ export default function Article() {
       try {
         setLoading(true);
         const res = await fetch(
-            `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
+            `${BASE_URL}/api/articles/${articleId}`
           ),
           data = await res.json();
         setArticle(data);
-        setArticleContent(data.content);
+        setArticleContent(data.contentHtml);
         setLoading(false);
-        // console.log(data)
+        //  console.log(data)
       } catch (error) {
         console.log(error);
       }
     };
     getAticle();
   }, [articleId]);
-
+  
   const deleteArticle = async () => {
     setOpenModal(false);
     try {
       const res = await fetch(
-        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        `${BASE_URL}/api/articles/${articleId}`,
         {
           method: "DELETE",
         }
@@ -86,7 +87,8 @@ export default function Article() {
             <div>
               <p>
                 {" "}
-                <strong>Categoria:</strong> {article.category?.nameCategory}
+                <strong>Categoria:</strong> {article.CategoriesArticle
+                  ?.name}
               </p>
             </div>
           </div>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./css-components/search.css";
 import { Link } from "react-router-dom";
-
+import {BASE_URL} from '../helpers/base_url'
 const SearchMain = () => {
   const [toSearch, setToSearch] = useState([]);
   const [articlesList, setArticlesList] = useState([]);
   const [search, setSearch] = useState("");
-  const url = `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/`;
+  const url = `${BASE_URL}/api/articles`;
 
   const getArticles = async (url) => {
     try {

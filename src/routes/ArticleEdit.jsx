@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import "./articleEdit.css";
 import { SelectCategories } from "../components/SelectCategories";
 import FooterMobile from "../components/FooterMobile";
+import { BASE_URL } from "../helpers/base_url";
 
 function ArticleEdit() {
   const [loading, setLoading] = useState(false);
@@ -18,9 +19,9 @@ function ArticleEdit() {
   const [articleTitle, setArticleTitle] = useState("");
   const [article, setArticle] = useState("");
   const [articleContent, setArticleContent] = useState("");
-  const [category, setCategory] = useState("");
+  const [categoryId, setCategoryId] = useState("");
   const handleChange = (e) => {
-    setCategory(e.target.value);
+    setCategoryId(e.target.value);
   };
 
   //   const handleChange = (e) => {
@@ -30,7 +31,7 @@ function ArticleEdit() {
   const UpdateArticle = async (data) => {
     try {
       const res = await fetch(
-        `https://wikideas-app.devcodes.net/api/v1/wikideas/categories/${article.categoryId}/articles/${articleId}`,
+        `${BASE_URL}/api/articles/${articleId}`,
         {
           method: "PATCH",
           headers: {
@@ -42,33 +43,7 @@ function ArticleEdit() {
       // console.log(res);
       setArticleTitle("");
       //setCategory("");
-       navigate(`/article/${articleId}`);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const updateCategory = async () => {
-    console.log(
-      `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
-    );
-    const dataCategory = {
-      categoryId: category,
-    };
-    
-
-    try {
-      const res = await fetch(
-        `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-type": "application/json; charset=utf-8",
-          },
-          body: JSON.stringify(dataCategory),
-        }
-      );
-      console.log(res);
+      navigate(`/article/${articleId}`);
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +55,9 @@ function ArticleEdit() {
 
     const data = {
       title: articleTitle,
-      content: articleContent,
+      contentText: articleContent,
+      contentHtml: articleContent,
+      categoriesArticleId: categoryId
     };
 
     if (!data.title) {
@@ -88,10 +65,7 @@ function ArticleEdit() {
       return;
     }
 
-    if (category) {
-      updateCategory();
-    }
-    UpdateArticle(data);
+     UpdateArticle(data);
   };
 
   const addContent = (value) => {
@@ -103,14 +77,14 @@ function ArticleEdit() {
       try {
         setLoading(true);
         const res = await fetch(
-            `https://wikideas-app.devcodes.net/api/v1/wikideas/articles/${articleId}`
-          ),
+          `${BASE_URL}/api/articles/${articleId}`
+        ),
           data = await res.json();
         setArticle(data);
         setArticleTitle(data.title);
-        setArticleContent(data.content);
+        setArticleContent(data.contentHtml);
+        setCategoryId(data.categoriesArticleId)
         setLoading(false);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -123,7 +97,7 @@ function ArticleEdit() {
     <div className="content-container">
       <header className="header">
         <NavBar backgroundColor={`background-dark`} />
-        <h2 style={{textAlign: 'center', fontWeight: 'bold', marginTop: '1rem'}}>Editar Artículo</h2>
+        <h2 style={{ textAlign: 'center', fontWeight: 'bold', marginTop: '1rem' }}>Editar Artículo</h2>
 
       </header>
       <main id="main">
@@ -145,8 +119,8 @@ function ArticleEdit() {
               <label htmlFor="select">Categoría</label>
               <SelectCategories
                 handleChange={handleChange}
-                url="https://wikideas-app.devcodes.net/api/v1/wikideas/categories/"
-                value={category ? category : article.categoryId}
+                url={`${BASE_URL}/api/categories`}
+                value={categoryId ? categoryId : categoryId}
               />
             </div>
           </div>
@@ -173,8 +147,8 @@ function ArticleEdit() {
       </main>
 
       <Footer fontColor={"footer-font-dark"} />
-      <FooterMobile svgLeft={'svgHome'} svgRight={'svgSave'} linkLeft={'/'}  isButton={true} handleSubmit={handleSubmit}/>
-      
+      <FooterMobile svgLeft={'svgHome'} svgRight={'svgSave'} linkLeft={'/'} isButton={true} handleSubmit={handleSubmit} />
+
     </div>
   );
 }

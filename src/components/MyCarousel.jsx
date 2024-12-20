@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import "./css-components/myCarousel.css";
 import CardCarousel from "./CardCarousel";
+import { BASE_URL } from "../helpers/base_url";
 
 export const MyCarousel = () => {
-  const url = "https://wikideas-app.devcodes.net/api/v1/wikideas/articles/";
+  const url = `${BASE_URL}/api/articles`;
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
