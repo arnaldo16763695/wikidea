@@ -22,47 +22,47 @@ export const responsive = {
 export const urlImages = [
   {
     url: "/images/alimentacion-y-cocina.jpg",
-    id: '347e29d1-390a-44f5-93a0-be9dee27deb2',
+    id: '55f13931-1afe-46b7-83e5-bdbb839c15da',
   },
 
   {
     url: "/images/ciencia-y-tecnologia.jpg",
-    id: 'a0cfda67-bbc1-446e-8398-24b75d6b64e1',
+    id: '230d0d0d-df3d-41f1-b2bc-c2d031b8b310',
   },
 
   {
     url: "/images/cultura-y-entretenimiento.jpg",
-    id: 'adba8fcc-8cd7-4f5f-978e-49ca04a84b8f',
+    id: 'b591e6df-5d0f-4e1c-9324-82691541b3aa',
   },
 
   {
     url: "/images/deportes.jpg",
-    id: "57bb821f-2c7a-4de5-9cbd-105b03b21bb3",
+    id: "d2812f6f-d836-4d58-849b-6c8701af2ba2",
   },
   {
     url: "/images/educacion-y-desarrollo.jpg",
-    id: "d4681fdf-577e-4d31-94c8-c52b742ad9a3",
+    id: "bc551d83-50b2-4514-ac51-80f980bf74a9",
 
   },
   {
     url: "/images/medio-ambiente.jpg",
-    id: "8fcdc023-0a60-4071-a29d-a038c9382b56",
+    id: "36e9898a-554b-40b9-85a9-0a6866b55548",
   },
   {
     url: "/images/negocios-y-finanzas.jpg",
-    id: "64d95dce-ecaa-4d63-aef1-fba277b8593e",
+    id: "b14b929b-ba1b-4625-bff3-34071eb7add1",
   },
   {
     url: "/images/politica.jpg",
-    id: "aab395de-c19a-4a5b-99da-3f2236a51a4d",
+    id: "df5d8668-4609-49e9-b55b-fd8b0a94a530",
   },
   {
     url: "/images/viaje-y-turismo.jpg",
-    id: "cb236115-446d-4e7e-b017-b629c3085fbe",
+    id: "2344de39-2fa9-473e-8a4c-a22cce5f40ef",
   },
   {
     url: "/images/salud.jpg",
-    id: "2de700df-4dc9-4502-9f00-55efacaf8c83",
+    id: "32cea3dd-3a07-4414-b102-356ff5709876",
   },
 ];
 
