@@ -1,1 +1,1 @@
-export  const BASE_URL = 'http://190.205.42.241:4000'
+export  const BASE_URL = 'https://apiwiki.ajedev.com'

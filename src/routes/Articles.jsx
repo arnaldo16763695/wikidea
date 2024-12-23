@@ -33,7 +33,7 @@ function Articles() {
   };
   useEffect(() => {
     getArticles(
-      `http://190.205.42.241:4000/api/articles` 
+      `${BASE_URL}/api/articles` 
     );
   }, []);
 
