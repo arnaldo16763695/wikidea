@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./css-components/cardCategory.css";
 const CardCategory = (props) => {
-  console.log('Arnaldo', props.url)
+  // console.log('Arnaldo', props.url)
   return (
     <div
       className="card"

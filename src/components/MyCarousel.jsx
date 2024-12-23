@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { urlImages, responsive } from "../helpers/dataCarousel";
+import { responsive } from "../helpers/dataCarousel";
 import { useEffect, useState } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import "./css-components/myCarousel.css";
@@ -29,14 +29,14 @@ export const MyCarousel = () => {
   }, [url]);
   // console.log(articles);
 
-  articles.length &&
-    articles?.forEach((el) => {
-      urlImages?.forEach((el2) => {
-        if (el.id === el2.id) {
-          el.url = el2.url;
-        }
-      });
-    });
+  // articles.length &&
+  //   articles?.forEach((el) => {
+  //     urlImages?.forEach((el2) => {
+  //       if (el.id === el2.id) {
+  //         el.url = el2.url;
+  //       }
+  //     });
+  //   });
 
   const article =
     articles.length &&
@@ -44,7 +44,7 @@ export const MyCarousel = () => {
       <CardCarousel
         key={index}
         name={item.title}
-        url={item.url}
+        url={item.CategoriesArticle?.image}
         articleId={item.id}
         // description={item.description}
       />

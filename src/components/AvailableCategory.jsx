@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./css-components/availableCategory.css";
 import { helpHttp } from "../helpers/helpHttp";
 import CardCategory from "./CardCategory";
-import { urlImages } from "../helpers/dataCarousel"; 
 import { BASE_URL } from "../helpers/base_url";
 
 const AvailableCategory = () => {
@@ -21,14 +20,6 @@ const AvailableCategory = () => {
     getCategories(url);
   }, [url]);
 
-  categories.length && categories?.forEach((el) => {
-    urlImages?.forEach((el2) => {
-      if (el.id===el2.id) {
-        el.url = el2.url
-      }      
-    });
-  });
-
   return (
     <div className="available-category-content">
       <h2 className="title-available-category-content">
@@ -40,7 +31,7 @@ const AvailableCategory = () => {
             <div className="available-category-card" key={category.id}>
               <CardCategory
                 name={category.name}
-                url={category.url}
+                url={category.image}
                 categoryId={category.id} 
               />
             </div>
